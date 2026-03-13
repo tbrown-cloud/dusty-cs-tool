@@ -177,6 +177,34 @@ select.hsel{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-rad
   <!-- KPI strip -->
   <div class="kpi-strip" id="kpiStrip" style="grid-template-columns:repeat(4,1fr)"></div>
 
+  <!-- What Dusty Delivered panel -->
+  <div id="deliveredPanel" style="margin-top:14px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:22px 24px">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#0A1628">What Dusty delivered vs traditional layout</div>
+        <div style="font-size:12px;color:#94a3b8;margin-top:2px">Based on 80/20 framing split — adjust for job type below</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:12px;color:#64748b;font-weight:500">Job type:</span>
+        <select id="jobType" onchange="renderDelivered()" style="border:1px solid #e2e8f0;border-radius:6px;padding:6px 10px;font-size:12px;color:#1e293b;background:#f8f9fb">
+          <option value="general">General commercial (80/20)</option>
+          <option value="healthcare">Healthcare (70/30)</option>
+          <option value="datacenter">Data center (85/15)</option>
+          <option value="warehouse">Warehouse / manufacturing (72/28)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Before / After -->
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;margin-bottom:20px" id="beforeAfter"></div>
+
+    <!-- Elements breakdown -->
+    <div id="elementsBreakdown"></div>
+
+    <!-- Boom statement -->
+    <div id="boomStatement" style="margin-top:16px;border-radius:8px;padding:16px 20px;text-align:center"></div>
+  </div>
+
   <!-- ROI Calculator -->
   <div class="roi-box" id="roiBox">
     <div class="roi-title">⚡ Manual layout comparison — adjust to match this customer's crew</div>
@@ -187,8 +215,8 @@ select.hsel{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-rad
       </div>
       <div class="roi-field">
         <label>Manual rate (ft/hr per worker)</label>
-        <input type="number" id="manualRate" value="250" oninput="updateROI()"/>
-        <span style="font-size:11px;color:#93c5fd;margin-top:2px">industry default: ~250 ft/hr per worker</span>
+        <input type="number" id="manualRate" value="200" oninput="updateROI()"/>
+        <span style="font-size:11px;color:#93c5fd;margin-top:2px">~200 ft/hr is a reasonable field estimate · adjust as needed</span>
       </div>
       <div class="roi-result" id="roiResult"></div>
     </div>
@@ -197,7 +225,7 @@ select.hsel{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-rad
       <div class="roi-field">
         <label>Labor cost per hour ($/hr)</label>
         <input type="number" id="laborRate" value="85" oninput="updateROI()"/>
-        <span style="font-size:11px;color:#93c5fd;margin-top:2px">typical layout worker rate</span>
+        <span style="font-size:11px;color:#93c5fd;margin-top:2px">typical layout worker rate · use customer's actual rate if known</span>
       </div>
       <div id="dollarResult"></div>
     </div>
@@ -324,22 +352,22 @@ const SAMPLE=[
   {hour:"2024-01-04",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 12 - Core",feet_line:5100,point:380,text:51,print_quantity:4,robot_hours:7.8,productivity_rate:654,layout_id:"LY-002",portal_name:"webcor"},
   {hour:"2024-01-08",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-044",project_name:"Level 13 - Shell",feet_line:3800,point:290,text:38,print_quantity:3,robot_hours:5.5,productivity_rate:691,layout_id:"LY-003",portal_name:"webcor"},
   {hour:"2024-01-10",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 13",feet_line:5600,point:420,text:58,print_quantity:4,robot_hours:8.1,productivity_rate:691,layout_id:"LY-004",portal_name:"webcor"},
-  {hour:"2024-01-15",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"OR Suite A",feet_line:2900,point:210,text:29,print_quantity:2,robot_hours:4.2,productivity_rate:690,layout_id:"LY-005",portal_name:"dpr"},
-  {hour:"2024-01-18",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"OR Suite B",feet_line:6200,point:460,text:63,print_quantity:5,robot_hours:9.0,productivity_rate:689,layout_id:"LY-006",portal_name:"dpr"},
-  {hour:"2024-01-22",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"ICU Floor 2",feet_line:5000,point:370,text:50,print_quantity:4,robot_hours:7.3,productivity_rate:685,layout_id:"LY-007",portal_name:"dpr"},
-  {hour:"2024-01-25",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Hall B - East",feet_line:4600,point:340,text:46,print_quantity:3,robot_hours:6.8,productivity_rate:676,layout_id:"LY-008",portal_name:"skanska"},
-  {hour:"2024-02-01",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Hall B - West",feet_line:5800,point:430,text:59,print_quantity:4,robot_hours:8.4,productivity_rate:690,layout_id:"LY-009",portal_name:"skanska"},
-  {hour:"2024-02-05",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-039",project_name:"Hall C",feet_line:4900,point:360,text:49,print_quantity:4,robot_hours:7.1,productivity_rate:690,layout_id:"LY-010",portal_name:"skanska"},
-  {hour:"2024-02-08",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 14",feet_line:4000,point:295,text:40,print_quantity:3,robot_hours:5.9,productivity_rate:678,layout_id:"LY-011",portal_name:"webcor"},
-  {hour:"2024-02-12",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-044",project_name:"Level 14",feet_line:6100,point:452,text:62,print_quantity:5,robot_hours:8.8,productivity_rate:693,layout_id:"LY-012",portal_name:"webcor"},
-  {hour:"2024-02-15",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Lab Floor 3",feet_line:4400,point:325,text:44,print_quantity:3,robot_hours:6.5,productivity_rate:677,layout_id:"LY-013",portal_name:"dpr"},
-  {hour:"2024-02-19",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Lab Floor 4",feet_line:5300,point:392,text:53,print_quantity:4,robot_hours:7.7,productivity_rate:688,layout_id:"LY-014",portal_name:"dpr"},
-  {hour:"2024-02-22",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Lobby - Main",feet_line:6400,point:475,text:65,print_quantity:5,robot_hours:9.2,productivity_rate:696,layout_id:"LY-015",portal_name:"skanska"},
-  {hour:"2024-02-26",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-039",project_name:"Lobby - Entry",feet_line:3500,point:258,text:35,print_quantity:2,robot_hours:5.1,productivity_rate:686,layout_id:"LY-016",portal_name:"skanska"},
-  {hour:"2024-03-01",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-042",project_name:"Level 15",feet_line:5500,point:408,text:55,print_quantity:4,robot_hours:8.0,productivity_rate:688,layout_id:"LY-017",portal_name:"webcor"},
-  {hour:"2024-03-05",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-044",project_name:"Level 15",feet_line:5100,point:378,text:51,print_quantity:4,robot_hours:7.5,productivity_rate:680,layout_id:"LY-018",portal_name:"webcor"},
-  {hour:"2024-03-08",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-042",project_name:"Level 16",feet_line:4300,point:318,text:43,print_quantity:3,robot_hours:6.3,productivity_rate:683,layout_id:"LY-019",portal_name:"webcor"},
-  {hour:"2024-03-12",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Pharmacy Floor",feet_line:6100,point:452,text:61,print_quantity:5,robot_hours:8.9,productivity_rate:685,layout_id:"LY-020",portal_name:"dpr"},
+  {hour:"2024-01-15",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"OR Suite A",feet_line:2900,point:840,text:129,print_quantity:2,robot_hours:4.2,productivity_rate:690,layout_id:"LY-005",portal_name:"dpr"},
+  {hour:"2024-01-18",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"OR Suite B",feet_line:6200,point:1860,text:263,print_quantity:5,robot_hours:9.0,productivity_rate:689,layout_id:"LY-006",portal_name:"dpr"},
+  {hour:"2024-01-22",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"ICU Floor 2",feet_line:5000,point:1500,text:210,print_quantity:4,robot_hours:7.3,productivity_rate:685,layout_id:"LY-007",portal_name:"dpr"},
+  {hour:"2024-01-25",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Hall B - East",feet_line:4600,point:920,text:138,print_quantity:3,robot_hours:6.8,productivity_rate:676,layout_id:"LY-008",portal_name:"skanska"},
+  {hour:"2024-02-01",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Hall B - West",feet_line:5800,point:1160,text:174,print_quantity:4,robot_hours:8.4,productivity_rate:690,layout_id:"LY-009",portal_name:"skanska"},
+  {hour:"2024-02-05",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-039",project_name:"Hall C",feet_line:4900,point:980,text:147,print_quantity:4,robot_hours:7.1,productivity_rate:690,layout_id:"LY-010",portal_name:"skanska"},
+  {hour:"2024-02-08",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 14",feet_line:4000,point:480,text:80,print_quantity:3,robot_hours:5.9,productivity_rate:678,layout_id:"LY-011",portal_name:"webcor"},
+  {hour:"2024-02-12",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-044",project_name:"Level 14",feet_line:6100,point:732,text:122,print_quantity:5,robot_hours:8.8,productivity_rate:693,layout_id:"LY-012",portal_name:"webcor"},
+  {hour:"2024-02-15",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Lab Floor 3",feet_line:4400,point:1320,text:176,print_quantity:3,robot_hours:6.5,productivity_rate:677,layout_id:"LY-013",portal_name:"dpr"},
+  {hour:"2024-02-19",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Lab Floor 4",feet_line:5300,point:1590,text:212,print_quantity:4,robot_hours:7.7,productivity_rate:688,layout_id:"LY-014",portal_name:"dpr"},
+  {hour:"2024-02-22",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Lobby - Main",feet_line:6400,point:1280,text:192,print_quantity:5,robot_hours:9.2,productivity_rate:696,layout_id:"LY-015",portal_name:"skanska"},
+  {hour:"2024-02-26",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-039",project_name:"Lobby - Entry",feet_line:3500,point:700,text:105,print_quantity:2,robot_hours:5.1,productivity_rate:686,layout_id:"LY-016",portal_name:"skanska"},
+  {hour:"2024-03-01",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-042",project_name:"Level 15",feet_line:5500,point:660,text:110,print_quantity:4,robot_hours:8.0,productivity_rate:688,layout_id:"LY-017",portal_name:"webcor"},
+  {hour:"2024-03-05",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-044",project_name:"Level 15",feet_line:5100,point:612,text:102,print_quantity:4,robot_hours:7.5,productivity_rate:680,layout_id:"LY-018",portal_name:"webcor"},
+  {hour:"2024-03-08",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-042",project_name:"Level 16",feet_line:4300,point:516,text:86,print_quantity:3,robot_hours:6.3,productivity_rate:683,layout_id:"LY-019",portal_name:"webcor"},
+  {hour:"2024-03-12",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Pharmacy Floor",feet_line:6100,point:1830,text:244,print_quantity:5,robot_hours:8.9,productivity_rate:685,layout_id:"LY-020",portal_name:"dpr"},
 ];
 
 let allData=[...SAMPLE],filtered=[...SAMPLE],currentAccount="All",currentMode=null,manualWorkers=2,chart1=null,chart2=null,advancedOpen=false;
@@ -714,7 +742,7 @@ dz.addEventListener('dragleave',()=>dz.classList.remove('drag'));
 dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag');const f=e.dataTransfer.files[0];if(f){const inp=document.getElementById('fileIn');const dt=new DataTransfer();dt.items.add(f);inp.files=dt.files;loadFile(inp);}});
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
-function render(){renderBanner();renderModes();renderHero();renderKPIs();renderCrewBtns();updateROI();renderCharts();renderTable();}
+function render(){renderBanner();renderModes();renderHero();renderKPIs();renderCrewBtns();updateROI();renderDelivered();renderCharts();renderTable();}
 buildAccountSel();autoDetectMode();render();
 </script>
 </body>
