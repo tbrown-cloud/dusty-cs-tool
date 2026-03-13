@@ -1,3 +1,17 @@
+<script>
+  (function() {
+    const PASSWORD = "dusty2026"; // change this to whatever you want
+    const entered = sessionStorage.getItem("auth");
+    if (entered !== PASSWORD) {
+      const guess = prompt("Enter password to access this page:");
+      if (guess !== PASSWORD) {
+        document.write("<h2 style='font-family:sans-serif;padding:40px'>Access denied.</h2>");
+        throw new Error("Unauthorized");
+      }
+      sessionStorage.setItem("auth", PASSWORD);
+    }
+  })();
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
