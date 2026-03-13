@@ -4,8 +4,10 @@
     const entered = sessionStorage.getItem("auth");
     if (entered !== PASSWORD) {
       const guess = prompt("Enter password to access this page:");
-      if (guess !== PASSWORD) {
+      if (!guess || guess !== PASSWORD) {
+        document.open();
         document.write("<h2 style='font-family:sans-serif;padding:40px'>Access denied.</h2>");
+        document.close();
         throw new Error("Unauthorized");
       }
       sessionStorage.setItem("auth", PASSWORD);
