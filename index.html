@@ -8,129 +8,109 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F4F6FA;min-height:100vh;color:#1e293b}
-:root{--blue:#1B4DFF;--dark:#0A1628;--accent:#00C2FF}
-
-.header{background:var(--dark);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.header{background:#0A1628;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .logo{display:flex;align-items:center;gap:10px}
-.logo-text{color:#fff;font-weight:700;font-size:16px;letter-spacing:-.4px}
+.logo-text{color:#fff;font-weight:700;font-size:16px}
 .logo-sub{color:#64748b;font-size:11px;text-transform:uppercase;letter-spacing:.3px;margin-top:1px}
-.header-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.hdr-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 select.hsel{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-radius:6px;padding:7px 12px;font-size:13px;cursor:pointer}
-.btn-primary{background:var(--blue);color:#fff;border:none;border-radius:6px;padding:7px 16px;font-size:13px;cursor:pointer;font-weight:600}
-.btn-secondary{background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:6px;padding:7px 12px;font-size:13px;cursor:pointer}
-
-.tabs{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 28px;display:flex;gap:0}
-.tab{padding:14px 20px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:#64748b;transition:all .15s;white-space:nowrap}
-.tab.active{color:var(--blue);border-bottom-color:var(--blue)}
-
+.btn-blue{background:#1B4DFF;color:#fff;border:none;border-radius:6px;padding:7px 16px;font-size:13px;cursor:pointer;font-weight:600}
+.btn-gray{background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:6px;padding:7px 12px;font-size:13px;cursor:pointer}
+.tabs{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 28px;display:flex}
+.tab{padding:14px 20px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:#64748b;white-space:nowrap}
+.tab.active{color:#1B4DFF;border-bottom-color:#1B4DFF}
 .main{max-width:1140px;margin:0 auto;padding:0 24px 48px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px 20px;margin-top:14px}
+.dropzone{margin-top:16px;border:2px dashed #cbd5e1;border-radius:10px;padding:16px 24px;text-align:center;background:#fff;cursor:pointer;font-size:13px;color:#64748b}
+.dropzone.drag{border-color:#1B4DFF;background:#eff6ff}
 
-.dropzone{margin:16px 0 0;border:2px dashed #cbd5e1;border-radius:10px;padding:16px 24px;text-align:center;background:#fff;cursor:pointer;font-size:13px;color:#64748b;transition:all .15s}
-.dropzone.drag{border-color:var(--blue);background:#eff6ff}
-
-/* Suggested story banner */
-.suggest-banner{margin-top:16px;border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.suggest-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;opacity:.7}
-.suggest-title{font-size:15px;font-weight:700}
-.suggest-sub{font-size:12px;margin-top:3px;opacity:.75}
-
-/* Mode selector */
-.mode-bar{margin-top:12px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 18px}
-.mode-label{font-size:11px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
-.mode-btns{display:flex;gap:8px;flex-wrap:wrap}
-.mode-btn{border-radius:8px;padding:8px 14px;font-size:12px;cursor:pointer;font-weight:500;border:1.5px solid #e2e8f0;background:#f8f9fb;color:#475569;transition:all .15s;display:flex;align-items:center;gap:5px}
-.mode-btn.active{color:#fff;font-weight:600}
-.mode-btn .suggested-tag{background:rgba(255,255,255,0.25);border-radius:3px;padding:1px 5px;font-size:10px;margin-left:4px}
-
-/* Hero section */
-.hero-grid{display:grid;gap:14px;margin-top:14px}
-.hero-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px 28px}
-.hero-number{font-size:48px;font-weight:800;letter-spacing:-2px;line-height:1;margin:8px 0}
-.hero-label{font-size:13px;color:#64748b;font-weight:500}
-.hero-sub{font-size:12px;color:#94a3b8;margin-top:6px}
-.hero-context{font-size:13px;color:#475569;margin-top:12px;line-height:1.6;padding-top:12px;border-top:1px solid #f1f5f9}
-
-/* Talking points */
-.talking-points{background:#f8f9fb;border-radius:8px;padding:14px 16px;margin-top:12px}
-.tp-label{font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
-.tp-item{display:flex;gap:10px;margin-bottom:8px;font-size:13px;color:#334155;line-height:1.5}
-.tp-item:last-child{margin-bottom:0}
-.tp-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);margin-top:6px;flex-shrink:0}
-
-/* KPI strip */
-.kpi-strip{display:grid;gap:10px;margin-top:14px}
-.kpi{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;border-top:3px solid var(--c,#1B4DFF)}
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.kpi{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;border-top:3px solid var(--c)}
 .kpi-label{font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:.4px;font-weight:500}
-.kpi-value{font-size:20px;font-weight:700;color:#0A1628;margin-top:4px;letter-spacing:-.4px}
+.kpi-value{font-size:20px;font-weight:700;color:#0A1628;margin-top:4px}
 .kpi-sub{font-size:11px;color:#94a3b8;margin-top:2px}
 
-/* ROI calculator */
+/* Mode */
+.mode-bar{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 18px;margin-top:12px}
+.mode-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.mode-btn{border-radius:8px;padding:8px 14px;font-size:12px;cursor:pointer;font-weight:500;border:1.5px solid #e2e8f0;background:#f8f9fb;color:#475569}
+.mode-btn.active{color:#fff;font-weight:600}
+
+/* Hero */
+.hero-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:22px 24px;margin-top:14px}
+.hero-num{font-size:48px;font-weight:800;letter-spacing:-2px;line-height:1;margin:6px 0}
+.tp-box{background:#f8f9fb;border-radius:8px;padding:14px 16px;margin-top:12px}
+.tp-label{font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.tp{display:flex;gap:10px;margin-bottom:8px;font-size:13px;color:#334155;line-height:1.5}
+.tp:last-child{margin-bottom:0}
+.dot{width:6px;height:6px;border-radius:50%;background:#1B4DFF;margin-top:6px;flex-shrink:0}
+
+/* Delivered panel */
+.delivered{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:22px 24px;margin-top:14px}
+.del-grid{display:grid;grid-template-columns:1fr 40px 1fr;gap:0;margin-top:16px}
+.del-before{background:#f8f9fb;border:1px solid #e2e8f0;border-radius:10px 0 0 10px;padding:18px;text-align:center}
+.del-arrow{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.del-after{background:#eff6ff;border:2px solid #1B4DFF;border-radius:0 10px 10px 0;padding:18px;text-align:center}
+.del-num{font-size:28px;font-weight:800;letter-spacing:-1px;margin:8px 0 4px}
+.del-sub{font-size:12px;margin-top:12px;line-height:1.6}
+.boom{background:#0A1628;border-radius:8px;padding:18px 22px;color:#fff;margin-top:14px}
+
+/* ROI */
 .roi-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:18px 22px;margin-top:14px}
-.roi-title{font-size:13px;font-weight:600;color:#1e40af;margin-bottom:14px}
 .roi-row{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-end}
 .roi-field{display:flex;flex-direction:column;gap:5px}
 .roi-field label{font-size:11px;color:#3b82f6;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
 .roi-field input{border:1.5px solid #bfdbfe;border-radius:6px;padding:7px 10px;font-size:14px;width:110px;color:#0A1628;font-weight:600;background:#fff}
 .crew-btns{display:flex;gap:5px}
-.crew-btn{width:34px;height:34px;border-radius:6px;border:1.5px solid #bfdbfe;background:#fff;color:#3b82f6;font-weight:600;cursor:pointer;font-size:13px;transition:all .15s}
-.crew-btn.active{border-color:var(--blue);background:var(--blue);color:#fff}
-.roi-result{margin-left:auto;text-align:right;background:#fff;border-radius:8px;padding:14px 18px;border:1px solid #bfdbfe;min-width:220px}
-.roi-result-label{font-size:11px;color:#3b82f6;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
-.roi-result-value{font-size:28px;font-weight:800;color:var(--blue);letter-spacing:-1px;margin-top:4px}
-.roi-result-sub{font-size:12px;color:#60a5fa;margin-top:3px}
-.advanced-toggle{font-size:11px;color:#93c5fd;cursor:pointer;margin-top:10px;display:inline-block}
-.advanced-row{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #bfdbfe;gap:20px;flex-wrap:wrap;align-items:flex-end}
-.advanced-row.show{display:flex}
-.dollar-result{background:#dbeafe;border-radius:6px;padding:10px 14px;margin-top:10px;font-size:13px;color:#1e40af}
+.crew-btn{width:34px;height:34px;border-radius:6px;border:1.5px solid #bfdbfe;background:#fff;color:#3b82f6;font-weight:600;cursor:pointer;font-size:13px}
+.crew-btn.active{border-color:#1B4DFF;background:#1B4DFF;color:#fff}
+.roi-result{margin-left:auto;text-align:right;background:#fff;border-radius:8px;padding:14px 18px;border:1px solid #bfdbfe;min-width:200px}
+.adv-toggle{font-size:11px;color:#93c5fd;cursor:pointer;margin-top:10px;display:inline-block}
+.adv-row{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #bfdbfe;gap:20px;flex-wrap:wrap;align-items:flex-end}
+.adv-row.open{display:flex}
 
 /* Charts */
 .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .chart-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px 20px}
-.chart-title{font-size:13px;font-weight:600;color:#0A1628;margin-bottom:4px}
-.chart-sub{font-size:11px;color:#94a3b8;margin-bottom:14px}
-.no-chart{display:flex;align-items:center;justify-content:center;height:200px;color:#94a3b8;font-size:13px;text-align:center;line-height:1.6}
-.growth-badge{display:inline-flex;align-items:center;gap:4px;background:#dcfce7;color:#166534;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:8px}
-.decline-badge{background:#fee2e2;color:#991b1b}
 
 /* Table */
-.table-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;margin-top:14px;overflow:hidden}
-.table-header{padding:14px 20px;border-bottom:1px solid #f1f5f9;display:flex;justify-content:space-between;align-items:center}
+.tbl-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;margin-top:14px;overflow:hidden}
+.tbl-hdr{padding:14px 20px;border-bottom:1px solid #f1f5f9;display:flex;justify-content:space-between;align-items:center}
 .tbl{width:100%;border-collapse:collapse;font-size:12px}
 .tbl th{padding:9px 14px;text-align:left;font-weight:500;color:#64748b;border-bottom:1px solid #f1f5f9;white-space:nowrap;background:#f8f9fb}
 .tbl td{padding:8px 14px;color:#475569;white-space:nowrap;border-bottom:1px solid #f8f9fb}
 .tbl tr:nth-child(even) td{background:#fafafa}
-.badge{background:#eff6ff;color:var(--blue);border-radius:4px;padding:2px 8px;font-size:11px;font-weight:600}
+.badge{background:#eff6ff;color:#1B4DFF;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:600}
+.growth-badge{background:#dcfce7;color:#166534;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px}
 
-/* FunnelStory tab */
+/* FunnelStory */
 .fs-wrap{padding:20px 0}
 .fs-intro{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:20px 24px;margin-bottom:16px}
-.fs-intro h2{font-size:16px;font-weight:600;color:#0A1628;margin-bottom:6px}
-.fs-intro p{font-size:13px;color:#64748b;line-height:1.6}
 .fs-section{margin-bottom:24px}
-.fs-section-title{font-size:13px;font-weight:700;color:#0A1628;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;padding-left:10px;border-left:3px solid var(--blue)}
+.fs-sec-title{font-size:13px;font-weight:700;color:#0A1628;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;padding-left:10px;border-left:3px solid #1B4DFF}
 .prompt-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px 20px;margin-bottom:10px;position:relative}
-.prompt-situation{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.prompt-sit{font-size:12px;font-weight:600;color:#1B4DFF;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
 .prompt-title{font-size:14px;font-weight:600;color:#1e293b;margin-bottom:8px}
 .prompt-text{font-size:13px;color:#475569;line-height:1.65;background:#f8f9fb;border:1px solid #f1f5f9;border-radius:6px;padding:12px 14px;font-family:inherit;white-space:pre-wrap}
 .prompt-copy{position:absolute;top:16px;right:16px;background:#f8f9fb;border:1px solid #e2e8f0;border-radius:6px;padding:5px 10px;font-size:11px;cursor:pointer;color:#64748b;font-weight:500}
-.prompt-copy:hover{background:#eff6ff;color:var(--blue);border-color:#bfdbfe}
 .prompt-tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
-.prompt-tag{background:#f1f5f9;color:#64748b;border-radius:4px;padding:2px 8px;font-size:11px}
+.ptag{background:#f1f5f9;color:#64748b;border-radius:4px;padding:2px 8px;font-size:11px}
 .fs-tip{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px 16px;font-size:12px;color:#92400e;margin-bottom:16px;line-height:1.5}
 
-@media(max-width:700px){.chart-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.chart-grid{grid-template-columns:1fr}.del-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <div class="header">
   <div class="logo">
-    <svg width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#1B4DFF"/><path d="M8 22 L16 10 L24 22" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><circle cx="16" cy="22" r="2.5" fill="#00C2FF"/></svg>
-    <div><div class="logo-text">Dusty Robotics</div><div class="logo-sub" id="dataSourceLabel">CS Renewal Tool · Sample data</div></div>
+    <svg width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#1B4DFF"/><path d="M8 22L16 10L24 22" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><circle cx="16" cy="22" r="2.5" fill="#00C2FF"/></svg>
+    <div><div class="logo-text">Dusty Robotics</div><div class="logo-sub" id="srcLabel">CS Renewal Tool · Sample data</div></div>
   </div>
-  <div class="header-right">
-    <select class="hsel" id="acctSel" onchange="onAccountChange()"><option value="All">All accounts</option></select>
-    <select class="hsel" id="quickRange" onchange="onQuickRange()">
+  <div class="hdr-right">
+    <select class="hsel" id="acctSel" onchange="onAcct()"><option value="All">All accounts</option></select>
+    <select class="hsel" id="rangeEl" onchange="onRange()">
       <option value="all">All time</option>
       <option value="365">Last 12 months</option>
       <option value="180">Last 6 months</option>
@@ -139,75 +119,63 @@ select.hsel{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-rad
       <option value="custom">Custom range...</option>
     </select>
     <div id="customRange" style="display:none;align-items:center;gap:6px">
-      <input type="date" id="dateFrom" class="hsel" style="padding:6px 8px;font-size:12px" onchange="applyDateFilter()"/>
+      <input type="date" id="dateFrom" class="hsel" style="padding:6px 8px;font-size:12px" onchange="render()"/>
       <span style="color:#64748b;font-size:12px">to</span>
-      <input type="date" id="dateTo" class="hsel" style="padding:6px 8px;font-size:12px" onchange="applyDateFilter()"/>
+      <input type="date" id="dateTo" class="hsel" style="padding:6px 8px;font-size:12px" onchange="render()"/>
     </div>
-    <button class="btn-primary" onclick="document.getElementById('fileIn').click()">Upload CSV</button>
-    <button class="btn-secondary" onclick="exportCSV()">Export</button>
-    <input type="file" id="fileIn" accept=".csv" style="display:none" onchange="loadFile(this)"/>
+    <button class="btn-blue" onclick="document.getElementById('fi').click()">Upload CSV</button>
+    <button class="btn-gray" onclick="doExport()">Export</button>
+    <input type="file" id="fi" accept=".csv" style="display:none" onchange="loadFile(this)"/>
   </div>
 </div>
 
 <div class="tabs">
-  <div class="tab active" onclick="switchTab('dashboard',this)">📊 Dashboard</div>
-  <div class="tab" onclick="switchTab('funnelstory',this)">🔍 FunnelStory Prompts</div>
+  <div class="tab active" onclick="switchTab('dash',this)">📊 Dashboard</div>
+  <div class="tab" onclick="switchTab('fs',this)">🔍 FunnelStory Prompts</div>
 </div>
 
 <!-- DASHBOARD -->
-<div id="tab-dashboard">
+<div id="tab-dash">
 <div class="main">
+  <div class="dropzone" id="dz" onclick="document.getElementById('fi').click()">Drop your Dusty usage CSV here or click to upload · sample data shown below</div>
 
-  <div class="dropzone" id="dropzone" onclick="document.getElementById('fileIn').click()">
-    Drop your Dusty usage CSV here or click to upload · sample data shown below
-  </div>
+  <!-- Banner -->
+  <div id="banner" style="margin-top:14px"></div>
 
-  <!-- Suggested story banner -->
-  <div class="suggest-banner" id="suggestBanner"></div>
-
-  <!-- Mode selector -->
+  <!-- Mode bar -->
   <div class="mode-bar">
-    <div class="mode-label">Story mode — auto-suggested above, or choose your own</div>
+    <div style="font-size:11px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px">Story mode</div>
     <div class="mode-btns" id="modeBtns"></div>
   </div>
 
-  <!-- Hero section -->
-  <div id="heroSection"></div>
+  <!-- Hero -->
+  <div id="hero"></div>
 
-  <!-- KPI strip -->
-  <div class="kpi-strip" id="kpiStrip" style="grid-template-columns:repeat(4,1fr)"></div>
+  <!-- KPIs -->
+  <div class="kpi-grid" id="kpis"></div>
 
-  <!-- What Dusty Delivered panel -->
-  <div id="deliveredPanel" style="margin-top:14px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:22px 24px">
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px">
+  <!-- What Dusty Delivered -->
+  <div class="delivered" id="deliveredWrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
       <div>
         <div style="font-size:14px;font-weight:700;color:#0A1628">What Dusty delivered vs traditional layout</div>
-        <div style="font-size:12px;color:#94a3b8;margin-top:2px">Based on 80/20 framing split — adjust for job type below</div>
+        <div style="font-size:12px;color:#94a3b8;margin-top:2px">Based on real commercial construction ratios — adjust for job type</div>
       </div>
-      <div style="display:flex;align-items:center;gap:8px">
-        <span style="font-size:12px;color:#64748b;font-weight:500">Job type:</span>
-        <select id="jobType" onchange="renderDelivered()" style="border:1px solid #e2e8f0;border-radius:6px;padding:6px 10px;font-size:12px;color:#1e293b;background:#f8f9fb">
-          <option value="general">General commercial (80/20)</option>
-          <option value="healthcare">Healthcare (70/30)</option>
-          <option value="datacenter">Data center (85/15)</option>
-          <option value="warehouse">Warehouse / manufacturing (72/28)</option>
-        </select>
-      </div>
+      <select id="jobType" onchange="render()" style="border:1px solid #e2e8f0;border-radius:6px;padding:6px 10px;font-size:12px;background:#f8f9fb">
+        <option value="general">General commercial (80/20)</option>
+        <option value="healthcare">Healthcare (70/30)</option>
+        <option value="datacenter">Data center (85/15)</option>
+        <option value="warehouse">Warehouse / manufacturing (72/28)</option>
+      </select>
     </div>
-
-    <!-- Before / After -->
-    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;margin-bottom:20px" id="beforeAfter"></div>
-
-    <!-- Elements breakdown -->
-    <div id="elementsBreakdown"></div>
-
-    <!-- Boom statement -->
-    <div id="boomStatement" style="margin-top:16px;border-radius:8px;padding:16px 20px;text-align:center"></div>
+    <div class="del-grid" id="delGrid" style="margin-top:16px"></div>
+    <div id="delBar" style="margin-top:12px"></div>
+    <div id="delBoom" style="margin-top:12px"></div>
   </div>
 
-  <!-- ROI Calculator -->
-  <div class="roi-box" id="roiBox">
-    <div class="roi-title">⚡ Manual layout comparison — adjust to match this customer's crew</div>
+  <!-- ROI -->
+  <div class="roi-box">
+    <div style="font-size:13px;font-weight:600;color:#1e40af;margin-bottom:14px">⚡ Manual layout comparison</div>
     <div class="roi-row">
       <div class="roi-field">
         <label>Manual crew size</label>
@@ -215,535 +183,433 @@ select.hsel{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-rad
       </div>
       <div class="roi-field">
         <label>Manual rate (ft/hr per worker)</label>
-        <input type="number" id="manualRate" value="200" oninput="updateROI()"/>
-        <span style="font-size:11px;color:#93c5fd;margin-top:2px">~200 ft/hr is a reasonable field estimate · adjust as needed</span>
+        <input type="number" id="manRate" value="40" oninput="updateROI()"/>
+        <span style="font-size:11px;color:#93c5fd;margin-top:2px">~40 ft/hr is a field estimate · adjust as needed</span>
       </div>
-      <div class="roi-result" id="roiResult"></div>
+      <div class="roi-result" id="roiRes"></div>
     </div>
-    <span class="advanced-toggle" onclick="toggleAdvanced()">+ Show dollar value estimate</span>
-    <div class="advanced-row" id="advancedRow">
+    <span class="adv-toggle" onclick="toggleAdv()">+ Show dollar value estimate</span>
+    <div class="adv-row" id="advRow">
       <div class="roi-field">
-        <label>Labor cost per hour ($/hr)</label>
-        <input type="number" id="laborRate" value="85" oninput="updateROI()"/>
-        <span style="font-size:11px;color:#93c5fd;margin-top:2px">typical layout worker rate · use customer's actual rate if known</span>
+        <label>Labor cost ($/hr per worker)</label>
+        <input type="number" id="labRate" value="85" oninput="updateROI()"/>
+        <span style="font-size:11px;color:#93c5fd;margin-top:2px">use customer's actual rate if known</span>
       </div>
-      <div id="dollarResult"></div>
+      <div id="dolRes"></div>
     </div>
   </div>
 
   <!-- Charts -->
-  <div class="chart-grid" id="chartGrid">
-    <div class="chart-card"><div class="chart-title" id="c1Title"></div><div class="chart-sub" id="c1Sub"></div><div id="c1Wrap"><canvas id="chart1" height="200"></canvas></div></div>
-    <div class="chart-card"><div class="chart-title" id="c2Title"></div><div class="chart-sub" id="c2Sub"></div><div id="c2Wrap"><canvas id="chart2" height="200"></canvas></div></div>
+  <div class="chart-grid">
+    <div class="chart-card"><div style="font-size:13px;font-weight:600;color:#0A1628;margin-bottom:4px" id="c1t"></div><div style="font-size:11px;color:#94a3b8;margin-bottom:12px" id="c1s"></div><canvas id="c1" height="200"></canvas></div>
+    <div class="chart-card"><div style="font-size:13px;font-weight:600;color:#0A1628;margin-bottom:4px" id="c2t"></div><div style="font-size:11px;color:#94a3b8;margin-bottom:12px" id="c2s"></div><div id="c2w"><canvas id="c2" height="200"></canvas></div></div>
   </div>
 
   <!-- FunnelStory callout -->
   <div style="margin-top:14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
     <div>
       <div style="font-size:13px;font-weight:600;color:#1e40af">🔍 Ready to build your narrative?</div>
-      <div style="font-size:12px;color:#3b82f6;margin-top:3px">Use the data above, then grab a prompt from the FunnelStory tab to pull in health scores, renewal context, and SFDC signals.</div>
+      <div style="font-size:12px;color:#3b82f6;margin-top:3px">Use the data above, then grab a prompt from the FunnelStory tab.</div>
     </div>
-    <button class="btn-primary" onclick="switchTab('funnelstory',document.querySelectorAll('.tab')[1])">Open FunnelStory Prompts →</button>
+    <button class="btn-blue" onclick="switchTab('fs',document.querySelectorAll('.tab')[1])">Open FunnelStory Prompts →</button>
   </div>
 
   <!-- Table -->
-  <div class="table-card">
-    <div class="table-header"><span style="font-weight:600;font-size:14px">Session detail</span><small id="tableCount" style="font-size:12px;color:#94a3b8"></small></div>
-    <div style="overflow-x:auto"><table class="tbl" id="dataTable"></table></div>
-    <div style="padding:10px 20px;font-size:12px;color:#94a3b8" id="tableMore"></div>
+  <div class="tbl-card">
+    <div class="tbl-hdr"><span style="font-weight:600;font-size:14px">Session detail</span><small id="tblCount" style="font-size:12px;color:#94a3b8"></small></div>
+    <div style="overflow-x:auto"><table class="tbl" id="tbl"></table></div>
+    <div style="padding:10px 20px;font-size:12px;color:#94a3b8" id="tblMore"></div>
   </div>
-
 </div>
 </div>
 
-<!-- FUNNELSTORY TAB -->
-<div id="tab-funnelstory" style="display:none">
+<!-- FUNNELSTORY -->
+<div id="tab-fs" style="display:none">
 <div class="main"><div class="fs-wrap">
   <div class="fs-intro">
-    <h2>FunnelStory AI Prompt Library</h2>
-    <p>Copy any prompt below and paste it directly into FunnelStory's AI assistant. Customize the <strong>[bracketed fields]</strong> before sending. Pair these with the dashboard data for a complete renewal story.</p>
+    <h2 style="font-size:16px;font-weight:600;color:#0A1628;margin-bottom:6px">FunnelStory AI Prompt Library</h2>
+    <p style="font-size:13px;color:#64748b;line-height:1.6">Copy any prompt and paste into FunnelStory's AI assistant. Customize the <strong>[bracketed fields]</strong> before sending.</p>
   </div>
-  <div class="fs-tip">💡 <strong>Pro tip:</strong> Run the "Pre-call snapshot" prompt first to get the full picture, then pick the conversation-specific prompt that matches what you're walking into.</div>
+  <div class="fs-tip">💡 <strong>Pro tip:</strong> Run "Pre-call snapshot" first to get the full picture, then pick the conversation-specific prompt that matches what you're walking into.</div>
 
   <div class="fs-section">
-    <div class="fs-section-title">Renewal Conversations</div>
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Renewal · Pre-call prep</div>
-      <div class="prompt-title">Full account snapshot before renewal</div>
-      <div class="prompt-text">Give me a complete usage and health snapshot for [ACCOUNT NAME] ahead of their renewal on [DATE]. Include: total linear feet laid and robot hours over the contract period, month-over-month usage trend, number of projects and robots deployed, any usage dips or gaps, and their productivity rate compared to our average customer. Flag anything that could come up as a risk or objection in the renewal conversation.</div>
-      <div class="prompt-tags"><span class="prompt-tag">renewal</span><span class="prompt-tag">pre-call</span><span class="prompt-tag">health</span></div>
-    </div>
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Renewal · ROI framing</div>
-      <div class="prompt-title">Build the ROI case without "time savings"</div>
-      <div class="prompt-text">For [ACCOUNT NAME], help me build a business value narrative that goes beyond time savings. Using their usage data, show me: (1) how much layout work their team has completed with Dusty vs what a manual crew would have needed to deliver the same output, (2) which projects had the highest output density suggesting Dusty enabled work that would have been hard to staff manually, (3) whether their project count or scope has grown since they started with Dusty. Frame this as labor reallocation and capacity expansion, not hours saved.</div>
-      <div class="prompt-tags"><span class="prompt-tag">renewal</span><span class="prompt-tag">ROI</span><span class="prompt-tag">value</span></div>
-    </div>
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Renewal · Price objection</div>
-      <div class="prompt-title">Prepare for "Dusty is priced too high"</div>
-      <div class="prompt-text">I'm going into a renewal with [ACCOUNT NAME] and I expect a price objection. Pull the strongest data points I can use to justify the investment — their busiest months, their highest-output projects, total linear feet laid over the contract period. Then help me frame the cost not as a software subscription but as the cost of a high-precision layout capability they couldn't staff manually. Give me 3 specific data-backed talking points and one question I can ask them to get them to articulate the value themselves.</div>
-      <div class="prompt-tags"><span class="prompt-tag">renewal</span><span class="prompt-tag">price objection</span><span class="prompt-tag">ROI</span></div>
-    </div>
+    <div class="fs-sec-title">Renewal Conversations</div>
+    <div class="prompt-card"><button class="prompt-copy" onclick="copyP(this)">Copy</button><div class="prompt-sit">Renewal · Pre-call prep</div><div class="prompt-title">Full account snapshot before renewal</div><div class="prompt-text">Give me a complete usage and health snapshot for [ACCOUNT NAME] ahead of their renewal on [DATE]. Include: total linear feet laid and robot hours over the contract period, month-over-month usage trend, number of projects and robots deployed, any usage dips or gaps, and their productivity rate compared to our average customer. Flag anything that could come up as a risk or objection in the renewal conversation.</div><div class="prompt-tags"><span class="ptag">renewal</span><span class="ptag">pre-call</span><span class="ptag">health</span></div></div>
+    <div class="prompt-card"><button class="prompt-copy" onclick="copyP(this)">Copy</button><div class="prompt-sit">Renewal · ROI framing</div><div class="prompt-title">Build the ROI case without "time savings"</div><div class="prompt-text">For [ACCOUNT NAME], help me build a business value narrative that goes beyond time savings. Using their usage data, show me: (1) how much layout work their team has completed with Dusty vs what a manual crew would have needed to deliver the same output, (2) which projects had the highest output density suggesting Dusty enabled work that would have been hard to staff manually, (3) whether their project count or scope has grown since they started with Dusty. Frame this as labor reallocation and capacity expansion, not hours saved.</div><div class="prompt-tags"><span class="ptag">renewal</span><span class="ptag">ROI</span><span class="ptag">value</span></div></div>
+    <div class="prompt-card"><button class="prompt-copy" onclick="copyP(this)">Copy</button><div class="prompt-sit">Renewal · Price objection</div><div class="prompt-title">Prepare for "Dusty is priced too high"</div><div class="prompt-text">I'm going into a renewal with [ACCOUNT NAME] and I expect a price objection. Pull the strongest data points I can use to justify the investment — their busiest months, highest-output projects, total linear feet laid over the contract period. Then help me frame the cost not as a software subscription but as the cost of a high-precision layout capability they couldn't staff manually. Give me 3 specific data-backed talking points and one question I can ask them to get them to articulate the value themselves.</div><div class="prompt-tags"><span class="ptag">renewal</span><span class="ptag">price objection</span><span class="ptag">ROI</span></div></div>
   </div>
 
   <div class="fs-section">
-    <div class="fs-section-title">Pipeline & Growth</div>
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Pipeline · Project gap risk</div>
-      <div class="prompt-title">Project pipeline slowing — get ahead of it</div>
-      <div class="prompt-text">Usage for [ACCOUNT NAME] appears to be slowing or their active project count is declining. Before I get on the phone with them, help me understand: is this a natural project gap between jobs, or a sign of disengagement? What does their historical project cadence look like — how long have gaps typically lasted before? What projects do they have in their SFDC pipeline that could be Dusty candidates? Give me language to open a proactive conversation about their upcoming pipeline without sounding like I'm worried about churn.</div>
-      <div class="prompt-tags"><span class="prompt-tag">pipeline</span><span class="prompt-tag">at-risk</span><span class="prompt-tag">proactive</span></div>
-    </div>
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Growth · Expansion signal</div>
-      <div class="prompt-title">Find signals they're ready for more</div>
-      <div class="prompt-text">For [ACCOUNT NAME], look for signals they may be hitting capacity constraints with their current Dusty deployment. Are there months where robot utilization was unusually high? Projects where they could have run work in parallel with a second robot? Project types in their portfolio where they haven't deployed Dusty yet? Give me the 2-3 strongest signals I can use to open an expansion conversation naturally, and suggest the most logical next project type or site for them to expand into.</div>
-      <div class="prompt-tags"><span class="prompt-tag">expansion</span><span class="prompt-tag">growth</span><span class="prompt-tag">upsell</span></div>
-    </div>
+    <div class="fs-sec-title">Pipeline & Growth</div>
+    <div class="prompt-card"><button class="prompt-copy" onclick="copyP(this)">Copy</button><div class="prompt-sit">Pipeline · Project gap risk</div><div class="prompt-title">Project pipeline slowing — get ahead of it</div><div class="prompt-text">Usage for [ACCOUNT NAME] appears to be slowing or their active project count is declining. Before I get on the phone with them, help me understand: is this a natural project gap between jobs, or a sign of disengagement? What does their historical project cadence look like — how long have gaps typically lasted before? What projects do they have in their SFDC pipeline that could be Dusty candidates? Give me language to open a proactive conversation about their upcoming pipeline without sounding like I'm worried about churn.</div><div class="prompt-tags"><span class="ptag">pipeline</span><span class="ptag">at-risk</span><span class="ptag">proactive</span></div></div>
+    <div class="prompt-card"><button class="prompt-copy" onclick="copyP(this)">Copy</button><div class="prompt-sit">Growth · Expansion signal</div><div class="prompt-title">Find signals they're ready for more</div><div class="prompt-text">For [ACCOUNT NAME], look for signals they may be hitting capacity constraints with their current Dusty deployment. Are there months where robot utilization was unusually high? Projects where they could have run work in parallel with a second robot? Project types in their portfolio where they haven't deployed Dusty yet? Give me the 2-3 strongest signals I can use to open an expansion conversation naturally, and suggest the most logical next project type or site for them to expand into.</div><div class="prompt-tags"><span class="ptag">expansion</span><span class="ptag">growth</span><span class="ptag">upsell</span></div></div>
   </div>
 
   <div class="fs-section">
-    <div class="fs-section-title">QBR / Business Reviews</div>
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">QBR · Opening story</div>
-      <div class="prompt-title">3 headline moments to open a QBR</div>
-      <div class="prompt-text">Summarize [ACCOUNT NAME]'s Dusty usage for [Q + YEAR] in 3 headline moments I can open a QBR with. Each highlight should be a specific, concrete data point — their biggest output month, their most-used robot or project, a productivity milestone. Make each one feel like something worth celebrating, not just a number. Format as three short punchy statements I can put on a slide.</div>
-      <div class="prompt-tags"><span class="prompt-tag">QBR</span><span class="prompt-tag">storytelling</span><span class="prompt-tag">slides</span></div>
-    </div>
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">QBR · Trend analysis</div>
-      <div class="prompt-title">Usage trend and what's driving it</div>
-      <div class="prompt-text">For [ACCOUNT NAME], show me the usage trend over the last [3/6/12] months and help me explain what's driving it. Is usage growing, plateauing, or dipping? Which projects are driving the most activity? Are there signs they're expanding how they use Dusty — more robots, new project types, new sites? Give me a narrative I can walk through with the customer that shows we understand their business, not just their usage metrics.</div>
-      <div class="prompt-tags"><span class="prompt-tag">QBR</span><span class="prompt-tag">trends</span><span class="prompt-tag">analysis</span></div>
-    </div>
+    <div class="fs-sec-title">QBR / Business Reviews</div>
+    <div class="prompt-card"><button class="prompt-copy" onclick="copyP(this)">Copy</button><div class="prompt-sit">QBR · Opening story</div><div class="prompt-title">3 headline moments to open a QBR</div><div class="prompt-text">Summarize [ACCOUNT NAME]'s Dusty usage for [Q + YEAR] in 3 headline moments I can open a QBR with. Each highlight should be a specific, concrete data point — their biggest output month, their most-used robot or project, a productivity milestone. Make each one feel like something worth celebrating, not just a number. Format as three short punchy statements I can put on a slide.</div><div class="prompt-tags"><span class="ptag">QBR</span><span class="ptag">storytelling</span><span class="ptag">slides</span></div></div>
+    <div class="prompt-card"><button class="prompt-copy" onclick="copyP(this)">Copy</button><div class="prompt-sit">QBR · Trend analysis</div><div class="prompt-title">Usage trend and what's driving it</div><div class="prompt-text">For [ACCOUNT NAME], show me the usage trend over the last [3/6/12] months and help me explain what's driving it. Is usage growing, plateauing, or dipping? Which projects are driving the most activity? Are there signs they're expanding how they use Dusty — more robots, new project types, new sites? Give me a narrative I can walk through with the customer that shows we understand their business, not just their usage metrics.</div><div class="prompt-tags"><span class="ptag">QBR</span><span class="ptag">trends</span><span class="ptag">analysis</span></div></div>
   </div>
 
   <div class="fs-section">
-    <div class="fs-section-title">Quick Pulls</div>
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Quick pull · One stat</div>
-      <div class="prompt-title">Give me one number to lead with</div>
-      <div class="prompt-text">For [ACCOUNT NAME], what is the single most impressive usage statistic from the last [TIMEFRAME] that I could lead with in a conversation? It should be concrete, specific, and feel significant — a total output milestone, a record month, or a productivity benchmark. Give me the stat, a one-sentence way to say it out loud, and one follow-up question I can ask the customer after I share it.</div>
-      <div class="prompt-tags"><span class="prompt-tag">quick</span><span class="prompt-tag">any call</span></div>
-    </div>
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Quick pull · Peer comparison</div>
-      <div class="prompt-title">How do they stack up against similar customers?</div>
-      <div class="prompt-text">How does [ACCOUNT NAME]'s usage and productivity rate compare to other Dusty customers of similar size and project type? Are they above average, average, or underperforming? If above average, give me language to celebrate that. If below average, help me frame it as an opportunity — not a criticism — and suggest what's driving the gap and how we can close it together.</div>
-      <div class="prompt-tags"><span class="prompt-tag">benchmarking</span><span class="prompt-tag">any call</span></div>
-    </div>
+    <div class="fs-sec-title">Quick Pulls</div>
+    <div class="prompt-card"><button class="prompt-copy" onclick="copyP(this)">Copy</button><div class="prompt-sit">Quick pull · One stat</div><div class="prompt-title">Give me one number to lead with</div><div class="prompt-text">For [ACCOUNT NAME], what is the single most impressive usage statistic from the last [TIMEFRAME] that I could lead with in a conversation? It should be concrete, specific, and feel significant — a total output milestone, a record month, or a productivity benchmark. Give me the stat, a one-sentence way to say it out loud, and one follow-up question I can ask the customer after I share it.</div><div class="prompt-tags"><span class="ptag">quick</span><span class="ptag">any call</span></div></div>
+    <div class="prompt-card"><button class="prompt-copy" onclick="copyP(this)">Copy</button><div class="prompt-sit">Quick pull · Peer comparison</div><div class="prompt-title">How do they stack up against similar customers?</div><div class="prompt-text">How does [ACCOUNT NAME]'s usage and productivity rate compare to other Dusty customers of similar size and project type? Are they above average, average, or underperforming? If above average, give me language to celebrate that. If below average, help me frame it as an opportunity — not a criticism — and suggest what's driving the gap and how we can close it together.</div><div class="prompt-tags"><span class="ptag">benchmarking</span><span class="ptag">any call</span></div></div>
   </div>
 </div></div>
 </div>
 
 <script>
-const SAMPLE=[
-  {hour:"2024-01-03",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 12 - Core",feet_line:4200,point:310,text:42,print_quantity:3,robot_hours:6.2,productivity_rate:677,layout_id:"LY-001",portal_name:"webcor"},
-  {hour:"2024-01-04",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 12 - Core",feet_line:5100,point:380,text:51,print_quantity:4,robot_hours:7.8,productivity_rate:654,layout_id:"LY-002",portal_name:"webcor"},
-  {hour:"2024-01-08",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-044",project_name:"Level 13 - Shell",feet_line:3800,point:290,text:38,print_quantity:3,robot_hours:5.5,productivity_rate:691,layout_id:"LY-003",portal_name:"webcor"},
-  {hour:"2024-01-10",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 13",feet_line:5600,point:420,text:58,print_quantity:4,robot_hours:8.1,productivity_rate:691,layout_id:"LY-004",portal_name:"webcor"},
-  {hour:"2024-01-15",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"OR Suite A",feet_line:2900,point:840,text:129,print_quantity:2,robot_hours:4.2,productivity_rate:690,layout_id:"LY-005",portal_name:"dpr"},
-  {hour:"2024-01-18",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"OR Suite B",feet_line:6200,point:1860,text:263,print_quantity:5,robot_hours:9.0,productivity_rate:689,layout_id:"LY-006",portal_name:"dpr"},
-  {hour:"2024-01-22",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"ICU Floor 2",feet_line:5000,point:1500,text:210,print_quantity:4,robot_hours:7.3,productivity_rate:685,layout_id:"LY-007",portal_name:"dpr"},
-  {hour:"2024-01-25",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Hall B - East",feet_line:4600,point:920,text:138,print_quantity:3,robot_hours:6.8,productivity_rate:676,layout_id:"LY-008",portal_name:"skanska"},
-  {hour:"2024-02-01",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Hall B - West",feet_line:5800,point:1160,text:174,print_quantity:4,robot_hours:8.4,productivity_rate:690,layout_id:"LY-009",portal_name:"skanska"},
-  {hour:"2024-02-05",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-039",project_name:"Hall C",feet_line:4900,point:980,text:147,print_quantity:4,robot_hours:7.1,productivity_rate:690,layout_id:"LY-010",portal_name:"skanska"},
-  {hour:"2024-02-08",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 14",feet_line:4000,point:480,text:80,print_quantity:3,robot_hours:5.9,productivity_rate:678,layout_id:"LY-011",portal_name:"webcor"},
-  {hour:"2024-02-12",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-044",project_name:"Level 14",feet_line:6100,point:732,text:122,print_quantity:5,robot_hours:8.8,productivity_rate:693,layout_id:"LY-012",portal_name:"webcor"},
-  {hour:"2024-02-15",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Lab Floor 3",feet_line:4400,point:1320,text:176,print_quantity:3,robot_hours:6.5,productivity_rate:677,layout_id:"LY-013",portal_name:"dpr"},
-  {hour:"2024-02-19",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Lab Floor 4",feet_line:5300,point:1590,text:212,print_quantity:4,robot_hours:7.7,productivity_rate:688,layout_id:"LY-014",portal_name:"dpr"},
-  {hour:"2024-02-22",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Lobby - Main",feet_line:6400,point:1280,text:192,print_quantity:5,robot_hours:9.2,productivity_rate:696,layout_id:"LY-015",portal_name:"skanska"},
-  {hour:"2024-02-26",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-039",project_name:"Lobby - Entry",feet_line:3500,point:700,text:105,print_quantity:2,robot_hours:5.1,productivity_rate:686,layout_id:"LY-016",portal_name:"skanska"},
-  {hour:"2024-03-01",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-042",project_name:"Level 15",feet_line:5500,point:660,text:110,print_quantity:4,robot_hours:8.0,productivity_rate:688,layout_id:"LY-017",portal_name:"webcor"},
-  {hour:"2024-03-05",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-044",project_name:"Level 15",feet_line:5100,point:612,text:102,print_quantity:4,robot_hours:7.5,productivity_rate:680,layout_id:"LY-018",portal_name:"webcor"},
-  {hour:"2024-03-08",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-042",project_name:"Level 16",feet_line:4300,point:516,text:86,print_quantity:3,robot_hours:6.3,productivity_rate:683,layout_id:"LY-019",portal_name:"webcor"},
-  {hour:"2024-03-12",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Pharmacy Floor",feet_line:6100,point:1830,text:244,print_quantity:5,robot_hours:8.9,productivity_rate:685,layout_id:"LY-020",portal_name:"dpr"},
+var allData,filtered,acct,mode,workers,ch1,ch2,advOpen;
+
+var SPLITS={general:{f:.80,o:.20},healthcare:{f:.70,o:.30},datacenter:{f:.85,o:.15},warehouse:{f:.72,o:.28}};
+var MODES=[
+  {id:'price',icon:'💰',label:'Price objection',c:'#dc2626'},
+  {id:'pipeline',icon:'📉',label:'Pipeline slowing',c:'#d97706'},
+  {id:'growth',icon:'📈',label:'Growth story',c:'#059669'},
+  {id:'value',icon:'⭐',label:'Proving value',c:'#7c3aed'},
+  {id:'ramp',icon:'🚀',label:'Still ramping',c:'#0ea5e9'},
 ];
 
-let allData=[...SAMPLE],filtered=[...SAMPLE],currentAccount="All",currentMode=null,manualWorkers=2,chart1=null,chart2=null,advancedOpen=false;
+function init(){
+  allData=[
+    {hour:'2024-01-03',account:'Webcor Builders',opp_name:'Salesforce Tower P2',robot:'DR-042',project_name:'Level 12 - Core',feet_line:4200,point:310,text:42,print_quantity:3,robot_hours:6.2,productivity_rate:677},
+    {hour:'2024-01-04',account:'Webcor Builders',opp_name:'Salesforce Tower P2',robot:'DR-042',project_name:'Level 12 - Core',feet_line:5100,point:380,text:51,print_quantity:4,robot_hours:7.8,productivity_rate:654},
+    {hour:'2024-01-08',account:'Webcor Builders',opp_name:'Salesforce Tower P2',robot:'DR-044',project_name:'Level 13 - Shell',feet_line:3800,point:290,text:38,print_quantity:3,robot_hours:5.5,productivity_rate:691},
+    {hour:'2024-01-10',account:'Webcor Builders',opp_name:'Salesforce Tower P2',robot:'DR-042',project_name:'Level 13',feet_line:5600,point:420,text:58,print_quantity:4,robot_hours:8.1,productivity_rate:691},
+    {hour:'2024-01-15',account:'DPR Construction',opp_name:'Austin Medical Ctr',robot:'DR-051',project_name:'OR Suite A',feet_line:2900,point:840,text:129,print_quantity:2,robot_hours:4.2,productivity_rate:690},
+    {hour:'2024-01-18',account:'DPR Construction',opp_name:'Austin Medical Ctr',robot:'DR-051',project_name:'OR Suite B',feet_line:6200,point:1860,text:263,print_quantity:5,robot_hours:9.0,productivity_rate:689},
+    {hour:'2024-01-22',account:'DPR Construction',opp_name:'Austin Medical Ctr',robot:'DR-051',project_name:'ICU Floor 2',feet_line:5000,point:1500,text:210,print_quantity:4,robot_hours:7.3,productivity_rate:685},
+    {hour:'2024-01-25',account:'Skanska USA',opp_name:'Denver Convention Ctr',robot:'DR-038',project_name:'Hall B - East',feet_line:4600,point:920,text:138,print_quantity:3,robot_hours:6.8,productivity_rate:676},
+    {hour:'2024-02-01',account:'Skanska USA',opp_name:'Denver Convention Ctr',robot:'DR-038',project_name:'Hall B - West',feet_line:5800,point:1160,text:174,print_quantity:4,robot_hours:8.4,productivity_rate:690},
+    {hour:'2024-02-05',account:'Skanska USA',opp_name:'Denver Convention Ctr',robot:'DR-039',project_name:'Hall C',feet_line:4900,point:980,text:147,print_quantity:4,robot_hours:7.1,productivity_rate:690},
+    {hour:'2024-02-08',account:'Webcor Builders',opp_name:'Salesforce Tower P2',robot:'DR-042',project_name:'Level 14',feet_line:4000,point:480,text:80,print_quantity:3,robot_hours:5.9,productivity_rate:678},
+    {hour:'2024-02-12',account:'Webcor Builders',opp_name:'Salesforce Tower P2',robot:'DR-044',project_name:'Level 14',feet_line:6100,point:732,text:122,print_quantity:5,robot_hours:8.8,productivity_rate:693},
+    {hour:'2024-02-15',account:'DPR Construction',opp_name:'Austin Medical Ctr',robot:'DR-051',project_name:'Lab Floor 3',feet_line:4400,point:1320,text:176,print_quantity:3,robot_hours:6.5,productivity_rate:677},
+    {hour:'2024-02-19',account:'DPR Construction',opp_name:'Austin Medical Ctr',robot:'DR-051',project_name:'Lab Floor 4',feet_line:5300,point:1590,text:212,print_quantity:4,robot_hours:7.7,productivity_rate:688},
+    {hour:'2024-02-22',account:'Skanska USA',opp_name:'Denver Convention Ctr',robot:'DR-038',project_name:'Lobby - Main',feet_line:6400,point:1280,text:192,print_quantity:5,robot_hours:9.2,productivity_rate:696},
+    {hour:'2024-02-26',account:'Skanska USA',opp_name:'Denver Convention Ctr',robot:'DR-039',project_name:'Lobby - Entry',feet_line:3500,point:700,text:105,print_quantity:2,robot_hours:5.1,productivity_rate:686},
+    {hour:'2024-03-01',account:'Webcor Builders',opp_name:'Salesforce Tower P3',robot:'DR-042',project_name:'Level 15',feet_line:5500,point:660,text:110,print_quantity:4,robot_hours:8.0,productivity_rate:688},
+    {hour:'2024-03-05',account:'Webcor Builders',opp_name:'Salesforce Tower P3',robot:'DR-044',project_name:'Level 15',feet_line:5100,point:612,text:102,print_quantity:4,robot_hours:7.5,productivity_rate:680},
+    {hour:'2024-03-08',account:'Webcor Builders',opp_name:'Salesforce Tower P3',robot:'DR-042',project_name:'Level 16',feet_line:4300,point:516,text:86,print_quantity:3,robot_hours:6.3,productivity_rate:683},
+    {hour:'2024-03-12',account:'DPR Construction',opp_name:'Austin Medical Ctr',robot:'DR-051',project_name:'Pharmacy Floor',feet_line:6100,point:1830,text:244,print_quantity:5,robot_hours:8.9,productivity_rate:685}
+  ];
+  acct='All'; mode=null; workers=2; advOpen=false;
+  buildAcctSel();
+  applyFilters();
+  autoMode();
+  render();
+}
 
-const MODES=[
-  {id:"price",icon:"💰",label:"Price objection",color:"#dc2626",bg:"#fef2f2",border:"#fecaca"},
-  {id:"pipeline",icon:"📉",label:"Pipeline slowing",color:"#d97706",bg:"#fffbeb",border:"#fde68a"},
-  {id:"growth",icon:"📈",label:"Growth story",color:"#059669",bg:"#f0fdf4",border:"#bbf7d0"},
-  {id:"value",icon:"⭐",label:"Proving ongoing value",color:"#7c3aed",bg:"#faf5ff",border:"#e9d5ff"},
-  {id:"ramp",icon:"🚀",label:"Still ramping up",color:"#0ea5e9",bg:"#f0f9ff",border:"#bae6fd"},
-];
-
-function parseCSV(text){
-  const lines=text.trim().split("\n");if(lines.length<2)return[];
-  const headers=lines[0].split(",").map(h=>h.trim().replace(/^"|"$/g,""));
-  return lines.slice(1).map(line=>{
-    const vals=[];let cur="",inQ=false;
-    for(const ch of line){if(ch==='"')inQ=!inQ;else if(ch===','&&!inQ){vals.push(cur);cur="";}else cur+=ch;}
+function parseCSV(txt){
+  var lines=txt.trim().split('\n');
+  if(lines.length<2)return[];
+  var hdrs=lines[0].split(',').map(function(h){return h.trim().replace(/^"|"$/g,'');});
+  return lines.slice(1).map(function(line){
+    var vals=[],cur='',inQ=false;
+    for(var i=0;i<line.length;i++){var ch=line[i];if(ch==='"')inQ=!inQ;else if(ch===','&&!inQ){vals.push(cur);cur='';}else cur+=ch;}
     vals.push(cur);
-    const row={};headers.forEach((h,i)=>{const v=(vals[i]??"").trim().replace(/^"|"$/g,"");row[h]=isNaN(v)||v===""?v:parseFloat(v);});
+    var row={};
+    hdrs.forEach(function(h,i){var v=(vals[i]||'').trim().replace(/^"|"$/g,'');row[h]=(!isNaN(v)&&v!=='')?parseFloat(v):v;});
     return row;
-  }).filter(r=>Object.values(r).some(v=>v!==""));
+  }).filter(function(r){return Object.values(r).some(function(v){return v!=='';});});
 }
 
 function loadFile(inp){
-  const file=inp.files[0];if(!file)return;
-  const r=new FileReader();
-  r.onload=e=>{
-    const parsed=parseCSV(e.target.result);if(!parsed.length)return;
-    allData=parsed;currentAccount="All";currentMode=null;
-    document.getElementById('dropzone').style.display='none';
-    document.getElementById('dataSourceLabel').textContent='CS Renewal Tool · Your data';
-    buildAccountSel();applyFilter();autoDetectMode();render();
-  };r.readAsText(file);
+  var file=inp.files[0];if(!file)return;
+  var r=new FileReader();
+  r.onload=function(e){
+    var parsed=parseCSV(e.target.result);
+    if(!parsed.length)return;
+    allData=parsed;acct='All';mode=null;
+    document.getElementById('dz').style.display='none';
+    document.getElementById('srcLabel').textContent='CS Renewal Tool · Your data';
+    buildAcctSel();applyFilters();autoMode();render();
+  };
+  r.readAsText(file);
 }
 
-function buildAccountSel(){
-  const sel=document.getElementById('acctSel');
-  const accts=[...new Set(allData.map(r=>String(r.account||"")))].filter(Boolean).sort();
-  sel.innerHTML='<option value="All">All accounts</option>'+accts.map(a=>`<option>${a}</option>`).join('');
-  sel.value=currentAccount;
+function buildAcctSel(){
+  var sel=document.getElementById('acctSel');
+  var accts=[...new Set(allData.map(function(r){return String(r.account||'');}))].filter(Boolean).sort();
+  sel.innerHTML='<option value="All">All accounts</option>'+accts.map(function(a){return'<option>'+a+'</option>';}).join('');
+  sel.value=acct;
 }
 
-function onAccountChange(){currentAccount=document.getElementById('acctSel').value;currentMode=null;applyFilter();autoDetectMode();render();}
-
-function onQuickRange(){
-  const val=document.getElementById('quickRange').value;
-  const customRow=document.getElementById('customRange');
-  if(val==='custom'){customRow.style.display='flex';return;}
-  customRow.style.display='none';
-  applyFilter();autoDetectMode();render();
+function onAcct(){acct=document.getElementById('acctSel').value;mode=null;applyFilters();autoMode();render();}
+function onRange(){
+  var v=document.getElementById('rangeEl').value;
+  document.getElementById('customRange').style.display=v==='custom'?'flex':'none';
+  applyFilters();autoMode();render();
 }
-
-function applyDateFilter(){applyFilter();autoDetectMode();render();}
 
 function getDateBounds(){
-  const val=document.getElementById('quickRange')?.value||'all';
-  if(val==='all')return{from:null,to:null};
-  if(val==='custom'){
-    return{from:document.getElementById('dateFrom').value||null,to:document.getElementById('dateTo').value||null};
-  }
-  const days=parseInt(val);
-  const to=new Date();
-  const from=new Date();
+  var v=document.getElementById('rangeEl').value;
+  if(v==='all')return{from:null,to:null};
+  if(v==='custom'){return{from:document.getElementById('dateFrom').value||null,to:document.getElementById('dateTo').value||null};}
+  var days=parseInt(v),to=new Date(),from=new Date();
   from.setDate(from.getDate()-days);
   return{from:from.toISOString().slice(0,10),to:to.toISOString().slice(0,10)};
 }
 
-function applyFilter(){
-  const{from,to}=getDateBounds();
-  let base=currentAccount==="All"?allData:allData.filter(r=>String(r.account)===currentAccount);
-  if(from)base=base.filter(r=>String(r.hour).slice(0,10)>=from);
-  if(to)base=base.filter(r=>String(r.hour).slice(0,10)<=to);
-  filtered=base;
-  // Show record count in dropzone area
-  const lbl=document.getElementById('dataSourceLabel');
+function applyFilters(){
+  var bounds=getDateBounds();
+  filtered=allData.filter(function(r){
+    if(acct!=='All'&&String(r.account)!==acct)return false;
+    var d=String(r.hour||'').slice(0,10);
+    if(bounds.from&&d<bounds.from)return false;
+    if(bounds.to&&d>bounds.to)return false;
+    return true;
+  });
+  var lbl=document.getElementById('srcLabel');
   if(lbl){
-    const rangeLabel=document.getElementById('quickRange')?.selectedOptions[0]?.text||'All time';
-    lbl.textContent=`CS Renewal Tool · ${filtered.length} sessions · ${rangeLabel}`;
+    var sel=document.getElementById('rangeEl');
+    var rangeText=sel?sel.options[sel.selectedIndex].text:'All time';
+    lbl.textContent='CS Renewal Tool · '+filtered.length+' sessions · '+rangeText;
   }
-}
-
-// ── AUTO DETECT ──────────────────────────────────────────────────────────────
-function autoDetectMode(){
-  const stats=getStats();
-  const projects=getByProject();
-  const monthly=getByMonth();
-  const isGrowing=checkGrowth(monthly);
-  const projectCount=projects.length;
-  const sessionCount=stats.sessions;
-
-  if(sessionCount<=5||projectCount<=1){currentMode='price';return;}
-  if(isGrowing&&projectCount>=3){currentMode='growth';return;}
-  if(!isGrowing&&projectCount>=2){currentMode='pipeline';return;}
-  if(sessionCount>=15){currentMode='value';return;}
-  currentMode='ramp';
-}
-
-function checkGrowth(monthly){
-  if(monthly.length<3)return false;
-  const last3=monthly.slice(-3);
-  return last3[2].feet_line>last3[0].feet_line;
-}
-
-// ── STATS ────────────────────────────────────────────────────────────────────
-function getStats(){
-  const totalFt=filtered.reduce((s,r)=>s+(Number(r.feet_line)||0),0);
-  const totalHrs=filtered.reduce((s,r)=>s+(Number(r.robot_hours)||0),0);
-  const totalPts=filtered.reduce((s,r)=>s+(Number(r.point)||0),0);
-  const rates=filtered.map(r=>Number(r.productivity_rate)).filter(v=>v>0);
-  const avgRate=rates.length?rates.reduce((a,b)=>a+b,0)/rates.length:0;
-  const projects=[...new Set(filtered.map(r=>String(r.project_name)))].filter(Boolean).length;
-  const robots=[...new Set(filtered.map(r=>String(r.robot)))].filter(Boolean).length;
-  const mRate=Number(document.getElementById('manualRate')?.value||40);
-  const lRate=Number(document.getElementById('laborRate')?.value||85);
-  const manHrs=totalFt/(mRate*manualWorkers);
-  const dollarValue=manHrs*lRate*manualWorkers;
-  return{totalFt,totalHrs,totalPts,avgRate,projects,robots,manHrs,dollarValue,
-    ftPerHr:totalHrs>0?Math.round(totalFt/totalHrs):0,
-    timeMult:totalHrs>0?(manHrs/totalHrs).toFixed(1):"—",
-    sessions:filtered.length,lRate};
 }
 
 function getByMonth(){
-  const m={};
-  filtered.forEach(r=>{
-    const d=String(r.hour??"").slice(0,7);if(!d||d.length<7)return;
-    if(!m[d])m[d]={month:d,feet_line:0,robot_hours:0,sessions:0};
-    m[d].feet_line+=Number(r.feet_line)||0;m[d].robot_hours+=Number(r.robot_hours)||0;m[d].sessions++;
+  var m={};
+  filtered.forEach(function(r){
+    var d=String(r.hour||'').slice(0,7);
+    if(!d||d.length<7)return;
+    if(!m[d])m[d]={month:d,feet_line:0,sessions:0};
+    m[d].feet_line+=Number(r.feet_line)||0;
+    m[d].sessions++;
   });
-  return Object.values(m).sort((a,b)=>a.month.localeCompare(b.month));
+  return Object.values(m).sort(function(a,b){return a.month.localeCompare(b.month);});
 }
 
 function getByProject(){
-  const m={};
-  filtered.forEach(r=>{
-    const k=String(r.project_name??"");if(!m[k])m[k]={project:k.slice(0,20),feet_line:0,sessions:0,robot_hours:0};
-    m[k].feet_line+=Number(r.feet_line)||0;m[k].sessions++;m[k].robot_hours+=Number(r.robot_hours)||0;
+  var m={};
+  filtered.forEach(function(r){
+    var k=String(r.project_name||'');
+    if(!m[k])m[k]={project:k.slice(0,20),feet_line:0,sessions:0};
+    m[k].feet_line+=Number(r.feet_line)||0;m[k].sessions++;
   });
-  return Object.values(m).sort((a,b)=>b.feet_line-a.feet_line);
+  return Object.values(m).sort(function(a,b){return b.feet_line-a.feet_line;});
 }
 
-function fmt(n){return Number(n).toLocaleString();}
-function fmtK(n){return n>=1000?(n/1000).toFixed(1)+"k":String(Math.round(n));}
+function isGrowing(){
+  var mo=getByMonth();
+  if(mo.length<3)return false;
+  var last=mo.slice(-3);
+  return last[2].feet_line>last[0].feet_line;
+}
 
-// ── RENDER BANNER ────────────────────────────────────────────────────────────
+function getStats(){
+  var ft=0,hrs=0,pts=0,txt=0,rates=[],projs=new Set(),robots=new Set();
+  filtered.forEach(function(r){
+    ft+=Number(r.feet_line)||0;
+    hrs+=Number(r.robot_hours)||0;
+    pts+=Number(r.point)||0;
+    txt+=Number(r.text)||0;
+    var rate=Number(r.productivity_rate);if(rate>0)rates.push(rate);
+    if(r.project_name)projs.add(String(r.project_name));
+    if(r.robot)robots.add(String(r.robot));
+  });
+  var avgRate=rates.length?rates.reduce(function(a,b){return a+b;},0)/rates.length:0;
+  var mRate=Number(document.getElementById('manRate')?document.getElementById('manRate').value:200)||200;
+  var manHrs=ft/(mRate*workers);
+  var lRate=Number(document.getElementById('labRate')?document.getElementById('labRate').value:85)||85;
+  return{ft:ft,hrs:hrs,pts:pts,txt:txt,avgRate:avgRate,projects:projs.size,robots:robots.size,
+    ftPerHr:hrs>0?Math.round(ft/hrs):0,sessions:filtered.length,
+    manHrs:manHrs,timeMult:hrs>0?(manHrs/hrs).toFixed(1):'—',dollarVal:manHrs*lRate*workers,lRate:lRate};
+}
+
+function autoMode(){
+  var s=getStats();
+  var mo=getByMonth();
+  var growing=isGrowing();
+  if(s.projects<=1||s.sessions<=5){mode='price';return;}
+  if(growing&&s.projects>=3){mode='growth';return;}
+  if(!growing&&s.projects>=2){mode='pipeline';return;}
+  if(s.sessions>=15){mode='value';return;}
+  mode='ramp';
+}
+
+function fmt(n){return Math.round(n).toLocaleString();}
+function fmtK(n){return n>=1000?(n/1000).toFixed(1)+'k':String(Math.round(n));}
+
+function render(){
+  renderBanner();
+  renderModes();
+  renderHero();
+  renderKPIs();
+  renderDelivered();
+  renderCrewBtns();
+  updateROI();
+  renderCharts();
+  renderTable();
+}
+
 function renderBanner(){
-  const mode=MODES.find(m=>m.id===currentMode);if(!mode)return;
-  const msgs={
-    price:{title:"Lead with ROI — price objection likely",sub:"Single or limited projects detected. The manual comparison is your strongest asset."},
-    pipeline:{title:"Pipeline looks like it's slowing",sub:"Project activity is declining. Get ahead of it with a forward-looking conversation."},
-    growth:{title:"Strong growth story — lead with momentum",sub:"Usage is growing month over month. Celebrate it and use it to anchor the renewal."},
-    value:{title:"Prove ongoing value — long-term customer",sub:"Steady, sustained usage. Frame the cumulative output as irreplaceable capacity."},
-    ramp:{title:"Early days — focus on trajectory",sub:"Still building adoption. Highlight wins so far and the runway ahead."},
-  };
-  const msg=msgs[currentMode];
-  document.getElementById('suggestBanner').innerHTML=
-    `<div style="background:${mode.bg};border:1px solid ${mode.border};border-radius:10px;padding:14px 18px;width:100%">
-      <div style="font-size:11px;font-weight:700;color:${mode.color};text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px">✦ Suggested story mode</div>
-      <div style="font-size:15px;font-weight:700;color:${mode.color}">${mode.icon} ${msg.title}</div>
-      <div style="font-size:12px;color:${mode.color};opacity:.75;margin-top:3px">${msg.sub}</div>
-    </div>`;
+  var m=MODES.filter(function(x){return x.id===mode;})[0];
+  if(!m)return;
+  var msgs={price:'Lead with ROI — price objection likely. Single or limited projects detected.',pipeline:'Pipeline looks like it\'s slowing. Get ahead of it with a forward-looking conversation.',growth:'Strong growth story — lead with momentum. Usage is growing month over month.',value:'Prove ongoing value. Steady, sustained usage across multiple projects.',ramp:'Early days — focus on trajectory and wins so far.'};
+  var bg={price:'#fef2f2',pipeline:'#fffbeb',growth:'#f0fdf4',value:'#faf5ff',ramp:'#f0f9ff'};
+  var bd={price:'#fecaca',pipeline:'#fde68a',growth:'#bbf7d0',value:'#e9d5ff',ramp:'#bae6fd'};
+  document.getElementById('banner').innerHTML='<div style="background:'+bg[mode]+';border:1px solid '+bd[mode]+';border-radius:10px;padding:14px 18px"><div style="font-size:11px;font-weight:700;color:'+m.c+';text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px">✦ Suggested story mode</div><div style="font-size:15px;font-weight:700;color:'+m.c+'">'+m.icon+' '+msgs[mode]+'</div></div>';
 }
 
-// ── RENDER MODES ─────────────────────────────────────────────────────────────
 function renderModes(){
-  document.getElementById('modeBtns').innerHTML=MODES.map(m=>{
-    const isActive=m.id===currentMode;
-    const isSuggested=m.id===currentMode;
-    return`<button class="mode-btn${isActive?' active':''}" 
-      style="${isActive?`background:${m.color};border-color:${m.color};color:#fff`:''}"
-      onclick="setMode('${m.id}')">${m.icon} ${m.label}${isSuggested?'<span class="suggested-tag">suggested</span>':''}</button>`;
+  document.getElementById('modeBtns').innerHTML=MODES.map(function(m){
+    var active=m.id===mode;
+    var sty=active?'background:'+m.c+';border-color:'+m.c+';color:#fff':'';
+    return'<button class="mode-btn'+(active?' active':'')+'" style="'+sty+'" onclick="setMode(\''+m.id+'\')">'+m.icon+' '+m.label+(active?' <span style="background:rgba(255,255,255,.25);border-radius:3px;padding:1px 5px;font-size:10px;margin-left:4px">suggested</span>':'')+'</button>';
   }).join('');
 }
 
-function setMode(id){currentMode=id;render();}
+function setMode(id){mode=id;render();}
 
-// ── RENDER HERO ──────────────────────────────────────────────────────────────
 function renderHero(){
-  const s=getStats();
-  const monthly=getByMonth();
-  const projects=getByProject();
-  const isGrowing=checkGrowth(monthly);
-  const mode=currentMode;
-  let html='';
-
-  const talkingPoints={
-    price:[
-      `Your team laid <strong>${fmt(s.totalFt)} linear feet</strong> — a manual crew of ${manualWorkers} would have needed <strong>${Math.round(s.manHrs)} hours</strong> to match that output.`,
-      `At Dusty's productivity rate of <strong>${fmt(s.ftPerHr)} ft/hr</strong>, your layout work ran <strong>${s.timeMult}× faster</strong> than manual — that's not a line item, that's a schedule advantage.`,
-      `Ask them: <em>"What would it have cost to staff that manually across ${s.projects} project${s.projects!==1?'s':''}?"</em> Then let them answer.`,
-    ],
-    pipeline:[
-      `They've deployed across <strong>${s.projects} project${s.projects!==1?'s':''}</strong> — ask what's in the pipeline for the next 2 quarters before they assume there's no need.`,
-      `Their peak output was <strong>${fmtK(Math.max(...monthly.map(m=>m.feet_line)))} ft in a single month</strong> — that capacity exists and can be reactivated quickly.`,
-      `Frame the renewal as <em>keeping the capability on standby</em>, not paying for something they're not using right now.`,
-    ],
-    growth:[
-      `Usage has grown month over month — their team is <strong>actively expanding</strong> how they use Dusty, not just maintaining it.`,
-      `They've run <strong>${s.sessions} sessions across ${s.projects} projects</strong> — this is a team that's integrated Dusty into how they work, not a trial.`,
-      `The renewal question isn't "should we keep it?" — it's <em>"how do we deploy it on even more of our pipeline?"</em>`,
-    ],
-    value:[
-      `Over this contract, they've laid <strong>${fmt(s.totalFt)} linear feet</strong> across <strong>${s.projects} projects</strong> — that's a track record, not an experiment.`,
-      `Cumulative output at <strong>${fmt(s.ftPerHr)} ft/hr</strong> means their layout team's capacity has effectively been <strong>${s.timeMult}× what it was before Dusty</strong>.`,
-      `Ask them: <em>"Which of those ${s.projects} projects would have been hardest to staff manually?"</em> — that's where the real value lives.`,
-    ],
-    ramp:[
-      `Early adoption looks strong — <strong>${s.sessions} sessions, ${fmt(s.totalFt)} ft laid</strong> already with more project types ahead.`,
-      `Their productivity rate of <strong>${fmt(s.ftPerHr)} ft/hr</strong> shows the crew is operating efficiently — the ramp is working.`,
-      `Frame renewal as <em>the point where the investment starts compounding</em> — the hard part (onboarding, learning) is already done.`,
-    ],
+  var s=getStats();
+  var m=MODES.filter(function(x){return x.id===mode;})[0]||MODES[0];
+  var cfgs={
+    price:{num:fmt(s.ft),unit:'linear feet laid',sub:fmt(s.manHrs)+' manual hours to match this output with a crew of '+workers},
+    pipeline:{num:s.projects,unit:'project'+(s.projects!==1?'s':'')+' deployed',sub:s.sessions+' total sessions · '+fmtK(s.ft)+' ft laid'},
+    growth:{num:fmtK(s.ft),unit:'linear feet — and growing',sub:s.sessions+' sessions across '+s.projects+' projects'},
+    value:{num:fmt(s.ft),unit:'lifetime linear feet',sub:s.projects+' projects · '+s.sessions+' sessions · '+fmt(s.ftPerHr)+' ft/hr avg'},
+    ramp:{num:fmt(s.ftPerHr),unit:'ft/hr productivity rate',sub:fmtK(s.ft)+' ft laid so far · '+s.sessions+' sessions'}
   };
-
-  const heroConfigs={
-    price:{number:fmt(s.totalFt),unit:"linear feet laid",color:"#dc2626",sub:`${Math.round(s.manHrs)} manual hours to match this output with a crew of ${manualWorkers}`},
-    pipeline:{number:s.projects,unit:`project${s.projects!==1?'s':''} deployed`,color:"#d97706",sub:`${s.sessions} total sessions · ${fmt(s.totalFt)} ft laid`},
-    growth:{number:fmtK(s.totalFt),unit:"linear feet — and growing",color:"#059669",sub:`${isGrowing?'↑ Trending up':'Steady'} · ${s.sessions} sessions across ${s.projects} projects`},
-    value:{number:fmt(s.totalFt),unit:"lifetime linear feet",color:"#7c3aed",sub:`${s.projects} projects · ${s.sessions} sessions · ${fmt(s.ftPerHr)} ft/hr avg`},
-    ramp:{number:fmt(s.ftPerHr),unit:"ft/hr productivity rate",color:"#0ea5e9",sub:`${fmt(s.totalFt)} ft laid so far · ${s.sessions} sessions · trajectory is strong`},
+  var tps={
+    price:['Your team laid <strong>'+fmt(s.ft)+' linear feet</strong> — a manual crew of '+workers+' would have needed <strong>'+fmt(s.manHrs)+' hours</strong> to match that output.','At <strong>'+fmt(s.ftPerHr)+' ft/hr</strong>, your layout ran <strong>'+s.timeMult+'× faster</strong> than manual — that\'s not a line item, that\'s a schedule advantage.','Ask them: <em>"What would it have cost to staff that manually across '+s.projects+' project'+(s.projects!==1?'s':'')+' ?"</em> Let them answer.'],
+    pipeline:['They\'ve deployed across <strong>'+s.projects+' project'+(s.projects!==1?'s':'')+' </strong> — ask what\'s in the pipeline before they assume there\'s no near-term need.','Peak output of <strong>'+fmtK(s.ft)+' ft</strong> — that capacity is ready to reactivate quickly when the next project starts.','Frame renewal as <em>keeping the capability on standby</em>, not paying for something not currently in use.'],
+    growth:['Usage has grown month over month — the team is <strong>actively expanding</strong> how they use Dusty, not just maintaining it.','<strong>'+s.sessions+' sessions across '+s.projects+' projects</strong> — this is a team that has integrated Dusty into how they work.','The renewal question isn\'t "should we keep it?" — it\'s <em>"how do we deploy it on even more of our pipeline?"</em>'],
+    value:['Over this contract they\'ve laid <strong>'+fmt(s.ft)+' ft across '+s.projects+' projects</strong> — that\'s a track record, not an experiment.','Cumulative output at <strong>'+fmt(s.ftPerHr)+' ft/hr</strong> means layout capacity has been effectively <strong>'+s.timeMult+'× what it was before Dusty</strong>.','Ask: <em>"Which of those '+s.projects+' projects would have been hardest to staff manually?"</em> — that\'s where the real value lives.'],
+    ramp:['Early adoption looks strong — <strong>'+s.sessions+' sessions, '+fmtK(s.ft)+' ft</strong> laid already with more project types ahead.','A productivity rate of <strong>'+fmt(s.ftPerHr)+' ft/hr</strong> shows the crew is operating efficiently — the ramp is working.','Frame renewal as <em>the point where the investment starts compounding</em> — onboarding and learning are already done.']
   };
-
-  const h=heroConfigs[mode]||heroConfigs.value;
-  const pts=talkingPoints[mode]||talkingPoints.value;
-
-  html=`<div class="hero-card" style="border-top:4px solid ${h.color}">
-    <div class="hero-label" style="color:${h.color};font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">${MODES.find(m=>m.id===mode)?.icon} ${MODES.find(m=>m.id===mode)?.label}</div>
-    <div class="hero-number" style="color:${h.color}">${h.number}</div>
-    <div style="font-size:18px;font-weight:600;color:#1e293b">${h.unit}</div>
-    <div style="font-size:12px;color:#94a3b8;margin-top:4px">${h.sub}</div>
-    <div class="talking-points">
-      <div class="tp-label">Talking points for this conversation</div>
-      ${pts.map(p=>`<div class="tp-item"><div class="tp-dot"></div><div>${p}</div></div>`).join('')}
-    </div>
-  </div>`;
-
-  document.getElementById('heroSection').innerHTML=html;
+  var cfg=cfgs[mode]||cfgs.value;
+  var tp=tps[mode]||tps.value;
+  document.getElementById('hero').innerHTML='<div class="hero-card" style="border-top:4px solid '+m.c+'"><div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:'+m.c+'">'+m.icon+' '+m.label+'</div><div class="hero-num" style="color:'+m.c+'">'+cfg.num+'</div><div style="font-size:18px;font-weight:600;color:#1e293b">'+cfg.unit+'</div><div style="font-size:12px;color:#94a3b8;margin-top:4px">'+cfg.sub+'</div><div class="tp-box"><div class="tp-label">Talking points for this conversation</div>'+tp.map(function(p){return'<div class="tp"><div class="dot"></div><div>'+p+'</div></div>';}).join('')+'</div></div>';
 }
 
-// ── RENDER KPIs ──────────────────────────────────────────────────────────────
 function renderKPIs(){
-  const s=getStats();
-  const items=[
-    {label:"Linear feet laid",value:fmtK(s.totalFt),sub:"total output",c:"#1B4DFF"},
-    {label:"Robot hours",value:s.totalHrs.toFixed(0),sub:"on-site operation",c:"#0ea5e9"},
-    {label:"Avg productivity",value:fmt(s.ftPerHr)+" ft/hr",sub:"per robot hour",c:"#7c3aed"},
-    {label:"Projects deployed",value:s.projects,sub:`across ${s.robots} robot${s.robots!==1?"s":""}`,c:"#059669"},
+  var s=getStats();
+  var items=[
+    {l:'Linear feet laid',v:fmtK(s.ft),s:'total output',c:'#1B4DFF'},
+    {l:'Robot hours',v:s.hrs.toFixed(0),s:'on-site operation',c:'#0ea5e9'},
+    {l:'Avg productivity',v:fmt(s.ftPerHr)+' ft/hr',s:'per robot hour',c:'#7c3aed'},
+    {l:'Projects deployed',v:s.projects,s:'across '+s.robots+' robot'+(s.robots!==1?'s':''),c:'#059669'}
   ];
-  document.getElementById('kpiStrip').innerHTML=items.map(i=>
-    `<div class="kpi" style="--c:${i.c}"><div class="kpi-label">${i.label}</div><div class="kpi-value">${i.value}</div><div class="kpi-sub">${i.sub}</div></div>`
-  ).join('');
+  document.getElementById('kpis').innerHTML=items.map(function(i){return'<div class="kpi" style="--c:'+i.c+'"><div class="kpi-label">'+i.l+'</div><div class="kpi-value">'+i.v+'</div><div class="kpi-sub">'+i.s+'</div></div>';}).join('');
 }
 
-// ── ROI ──────────────────────────────────────────────────────────────────────
-function renderCrewBtns(){
-  document.getElementById('crewBtns').innerHTML=[1,2,3,4,5].map(n=>
-    `<button class="crew-btn${manualWorkers===n?' active':''}" onclick="setCrew(${n})">${n}</button>`
-  ).join('');
+function renderDelivered(){
+  var s=getStats();
+  var jt=document.getElementById('jobType');
+  var split=SPLITS[jt?jt.value:'general']||SPLITS.general;
+  var manFt=Math.round(s.ft*split.f);
+  var extraFt=s.ft-manFt;
+  var totalExtra=extraFt+s.pts+s.txt;
+
+  document.getElementById('delGrid').innerHTML=
+    '<div class="del-before">'+
+      '<div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px">Traditional layout crew</div>'+
+      '<div class="del-num" style="color:#94a3b8">'+fmt(manFt)+'</div>'+
+      '<div style="font-size:12px;color:#94a3b8">linear feet</div>'+
+      '<div class="del-sub" style="color:#cbd5e1">Wall lines · framing · corridors<br>Points: —<br>Text labels: —</div>'+
+      '<div style="margin-top:10px;background:#f1f5f9;border-radius:6px;padding:6px 10px;font-size:11px;color:#94a3b8">~'+Math.round(split.f*100)+'% of total scope</div>'+
+    '</div>'+
+    '<div class="del-arrow"><div style="font-size:20px;color:#94a3b8">→</div><div style="font-size:9px;color:#94a3b8;font-weight:700;text-transform:uppercase;letter-spacing:.5px">Dusty</div></div>'+
+    '<div class="del-after">'+
+      '<div style="font-size:11px;font-weight:700;color:#1B4DFF;text-transform:uppercase;letter-spacing:.5px">What Dusty actually delivered</div>'+
+      '<div class="del-num" style="color:#1B4DFF">'+fmt(s.ft)+'</div>'+
+      '<div style="font-size:12px;color:#1B4DFF">linear feet</div>'+
+      '<div class="del-sub" style="color:#1e40af">Everything above +<br><strong>'+fmt(s.pts)+' points</strong><br><strong>'+fmt(s.txt)+' text labels</strong></div>'+
+      '<div style="margin-top:10px;background:#dbeafe;border-radius:6px;padding:6px 10px;font-size:11px;color:#1e40af;font-weight:600">100% of scope · zero re-measurement</div>'+
+    '</div>';
+
+  document.getElementById('delBar').innerHTML=
+    '<div style="display:flex;justify-content:space-between;font-size:11px;color:#64748b;margin-bottom:5px"><span>Framing only (manual crew)</span><span style="font-weight:600">'+fmt(manFt)+' ft · '+Math.round(split.f*100)+'%</span></div>'+
+    '<div style="height:10px;background:#f1f5f9;border-radius:5px;overflow:hidden;display:flex">'+
+      '<div style="height:10px;background:#e2e8f0;width:'+Math.round(split.f*100)+'%"></div>'+
+      '<div style="height:10px;background:#1B4DFF;width:'+Math.round(split.o*100)+'%"></div>'+
+    '</div>'+
+    '<div style="display:flex;justify-content:space-between;font-size:11px;margin-top:5px"><span style="color:#94a3b8">↑ framing only</span><span style="color:#1B4DFF;font-weight:600">+ '+fmt(extraFt)+' ft additional geometry · '+Math.round(split.o*100)+'% →</span></div>';
+
+  document.getElementById('delBoom').innerHTML=
+    '<div class="boom">'+
+      '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;opacity:.6;margin-bottom:8px">The bottom line</div>'+
+      '<div style="font-size:15px;font-weight:700;line-height:1.6">A traditional layout crew would have delivered <span style="color:#93c5fd">'+fmt(manFt)+' ft of framing lines.</span></div>'+
+      '<div style="font-size:15px;font-weight:700;line-height:1.6;margin-top:6px">Dusty delivered <span style="color:#00C2FF">'+fmt(s.ft)+' ft</span> — plus <span style="color:#00C2FF">'+fmt(s.pts)+' points</span> and <span style="color:#00C2FF">'+fmt(s.txt)+' text labels</span> your trades had on day one.</div>'+
+      '<div style="font-size:13px;opacity:.7;margin-top:10px">That\'s '+fmt(totalExtra)+' additional elements a manual crew either wouldn\'t have provided, would have gotten wrong, or would have required a separate mobilization to complete.</div>'+
+    '</div>';
 }
-function setCrew(n){manualWorkers=n;renderCrewBtns();updateROI();renderHero();}
-function toggleAdvanced(){advancedOpen=!advancedOpen;document.getElementById('advancedRow').classList.toggle('show',advancedOpen);document.querySelector('.advanced-toggle').textContent=advancedOpen?'− Hide dollar estimate':'+ Show dollar value estimate';updateROI();}
+
+function renderCrewBtns(){
+  document.getElementById('crewBtns').innerHTML=[1,2,3,4,5].map(function(n){return'<button class="crew-btn'+(workers===n?' active':'')+'" onclick="setCrew('+n+')">'+n+'</button>';}).join('');
+}
+function setCrew(n){workers=n;renderCrewBtns();updateROI();renderHero();}
+function toggleAdv(){advOpen=!advOpen;document.getElementById('advRow').classList.toggle('open',advOpen);document.querySelector('.adv-toggle').textContent=advOpen?'− Hide dollar estimate':'+ Show dollar value estimate';updateROI();}
 
 function updateROI(){
-  const s=getStats();
-  document.getElementById('roiResult').innerHTML=
-    `<div class="roi-result-label">Manual equivalent</div>
-     <div class="roi-result-value">${Math.round(s.manHrs).toLocaleString()} hrs</div>
-     <div class="roi-result-sub">vs ${s.totalHrs.toFixed(0)} robot hrs · <strong>${s.timeMult}× output unlocked</strong></div>`;
-  if(advancedOpen){
-    const dollars=Math.max(0,s.dollarValue);
-    document.getElementById('dollarResult').innerHTML=
-      `<div class="dollar-result">Estimated labor value delivered: <strong>$${Math.round(dollars).toLocaleString()}</strong><br><span style="font-size:11px;opacity:.7">Based on ${manualWorkers} workers @ $${s.lRate}/hr · adjust rates to match this customer</span></div>`;
+  var s=getStats();
+  document.getElementById('roiRes').innerHTML='<div style="font-size:11px;color:#3b82f6;font-weight:600;text-transform:uppercase;letter-spacing:.4px">Manual equivalent</div><div style="font-size:26px;font-weight:800;color:#1B4DFF;letter-spacing:-1px;margin-top:4px">'+fmt(s.manHrs)+' hrs</div><div style="font-size:12px;color:#60a5fa;margin-top:3px">vs '+s.hrs.toFixed(0)+' robot hrs · <strong>'+s.timeMult+'× output unlocked</strong></div>';
+  if(advOpen){
+    document.getElementById('dolRes').innerHTML='<div style="background:#dbeafe;border-radius:6px;padding:10px 14px;font-size:13px;color:#1e40af">Estimated labor value delivered: <strong>$'+fmt(s.dollarVal)+'</strong><br><span style="font-size:11px;opacity:.7">'+workers+' workers @ $'+s.lRate+'/hr · adjust to match this customer</span></div>';
   }
-  renderHero();
 }
 
-// ── CHARTS ───────────────────────────────────────────────────────────────────
 function renderCharts(){
-  const monthly=getByMonth();
-  const projects=getByProject();
-  const isGrowing=checkGrowth(monthly);
-  if(chart1){chart1.destroy();chart1=null;}
-  if(chart2){chart2.destroy();chart2=null;}
+  var mo=getByMonth();
+  var proj=getByProject();
+  var growing=isGrowing();
+  if(ch1){ch1.destroy();ch1=null;}
+  if(ch2){ch2.destroy();ch2=null;}
+  var base={responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false},tooltip:{bodyFont:{size:12},titleFont:{size:12}}},scales:{x:{grid:{display:false},ticks:{color:'#94a3b8',font:{size:10}}},y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{color:'#94a3b8',font:{size:10}},border:{display:false}}}};
 
-  const base={responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false},tooltip:{bodyFont:{size:12},titleFont:{size:12}}},scales:{x:{grid:{display:false},ticks:{color:'#94a3b8',font:{size:10}}},y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{color:'#94a3b8',font:{size:10}},border:{display:false}}}};
+  document.getElementById('c1t').textContent='Output by project';
+  document.getElementById('c1s').textContent='Linear feet laid per project';
+  ch1=new Chart(document.getElementById('c1').getContext('2d'),{type:'bar',data:{labels:proj.map(function(p){return p.project;}),datasets:[{data:proj.map(function(p){return p.feet_line;}),backgroundColor:'#1B4DFF',borderRadius:4}]},options:Object.assign({},base,{scales:Object.assign({},base.scales,{x:Object.assign({},base.scales.x,{ticks:Object.assign({},base.scales.x.ticks,{maxRotation:25})})})})});
 
-  // Chart 1 — always project output
-  document.getElementById('c1Title').textContent='Output by project';
-  document.getElementById('c1Sub').textContent='Linear feet laid per project — shows breadth of deployment';
-  document.getElementById('c1Wrap').innerHTML='<canvas id="chart1" height="200"></canvas>';
-  chart1=new Chart(document.getElementById('chart1').getContext('2d'),{
-    type:'bar',
-    data:{labels:projects.map(p=>p.project),datasets:[{data:projects.map(p=>p.feet_line),backgroundColor:'#1B4DFF',borderRadius:4}]},
-    options:{...base,scales:{...base.scales,x:{...base.scales.x,ticks:{...base.scales.x.ticks,maxRotation:25}}}}
-  });
-
-  // Chart 2 — growth only if growing, otherwise top projects table
-  if(isGrowing){
-    const growthPct=monthly.length>=2?Math.round(((monthly[monthly.length-1].feet_line-monthly[0].feet_line)/monthly[0].feet_line)*100):0;
-    document.getElementById('c2Title').innerHTML=`Monthly output trend <span class="growth-badge">↑ Growing</span>`;
-    document.getElementById('c2Sub').textContent='Linear feet laid per month — consistent upward trend';
-    document.getElementById('c2Wrap').innerHTML='<canvas id="chart2" height="200"></canvas>';
-    chart2=new Chart(document.getElementById('chart2').getContext('2d'),{
-      type:'line',
-      data:{labels:monthly.map(m=>m.month),datasets:[{data:monthly.map(m=>m.feet_line),borderColor:'#059669',backgroundColor:'rgba(5,150,105,0.08)',tension:0.3,fill:true,pointRadius:3}]},
-      options:base
-    });
+  if(growing){
+    document.getElementById('c2t').innerHTML='Monthly output <span class="growth-badge">↑ Growing</span>';
+    document.getElementById('c2s').textContent='Linear feet per month — consistent upward trend';
+    document.getElementById('c2w').innerHTML='<canvas id="c2" height="200"></canvas>';
+    ch2=new Chart(document.getElementById('c2').getContext('2d'),{type:'line',data:{labels:mo.map(function(m){return m.month;}),datasets:[{data:mo.map(function(m){return m.feet_line;}),borderColor:'#059669',backgroundColor:'rgba(5,150,105,0.08)',tension:0.3,fill:true,pointRadius:3}]},options:base});
   } else {
-    // Not growing — show top projects detail instead of a bad chart
-    document.getElementById('c2Title').textContent='Top projects by output';
-    document.getElementById('c2Sub').textContent='Highest performing projects this period';
-    const top=projects.slice(0,5);
-    document.getElementById('c2Wrap').innerHTML=`
-      <div style="margin-top:4px">
-        ${top.map((p,i)=>`
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-            <div style="font-size:11px;color:#94a3b8;width:16px;text-align:right">${i+1}</div>
-            <div style="flex:1">
-              <div style="font-size:12px;font-weight:500;color:#1e293b">${p.project}</div>
-              <div style="height:6px;background:#f1f5f9;border-radius:3px;margin-top:4px">
-                <div style="height:6px;background:#1B4DFF;border-radius:3px;width:${Math.round((p.feet_line/top[0].feet_line)*100)}%"></div>
-              </div>
-            </div>
-            <div style="font-size:12px;font-weight:600;color:#1B4DFF;white-space:nowrap">${fmtK(p.feet_line)} ft</div>
-          </div>`).join('')}
-      </div>`;
+    document.getElementById('c2t').textContent='Top projects by output';
+    document.getElementById('c2s').textContent='Highest performing projects this period';
+    var top=proj.slice(0,5);
+    document.getElementById('c2w').innerHTML=top.map(function(p,i){return'<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="font-size:11px;color:#94a3b8;width:16px;text-align:right">'+(i+1)+'</div><div style="flex:1"><div style="font-size:12px;font-weight:500;color:#1e293b">'+p.project+'</div><div style="height:6px;background:#f1f5f9;border-radius:3px;margin-top:4px"><div style="height:6px;background:#1B4DFF;border-radius:3px;width:'+Math.round((p.feet_line/top[0].feet_line)*100)+'%"></div></div></div><div style="font-size:12px;font-weight:600;color:#1B4DFF;white-space:nowrap">'+fmtK(p.feet_line)+' ft</div></div>';}).join('');
   }
 }
 
-// ── TABLE ────────────────────────────────────────────────────────────────────
 function renderTable(){
-  const cols=['hour','account','project_name','robot','feet_line','point','robot_hours','productivity_rate'];
-  const labels=['Date','Account','Project','Robot','Ft laid','Points','Hours','Productivity'];
-  document.getElementById('tableCount').textContent=`${filtered.length} sessions`;
-  document.getElementById('dataTable').innerHTML=
-    `<thead><tr>${labels.map(l=>`<th>${l}</th>`).join('')}</tr></thead><tbody>`+
-    filtered.slice(0,40).map((r,i)=>`<tr>${cols.map(c=>{
-      if(c==='productivity_rate')return`<td><span class="badge">${fmt(r[c])} ft/hr</span></td>`;
-      if(c==='feet_line')return`<td style="color:#1B4DFF;font-weight:600">${fmt(r[c])}</td>`;
-      if(c==='hour')return`<td>${String(r[c]).slice(0,10)}</td>`;
-      if(typeof r[c]==='number')return`<td>${Number(r[c]).toFixed(c==='robot_hours'?1:0)}</td>`;
-      return`<td>${r[c]??'—'}</td>`;
-    }).join('')}</tr>`).join('')+`</tbody>`;
-  document.getElementById('tableMore').textContent=filtered.length>40?`Showing 40 of ${filtered.length} · export CSV for full data`:'';
+  var cols=['hour','account','project_name','robot','feet_line','point','text','robot_hours','productivity_rate'];
+  var labels=['Date','Account','Project','Robot','Ft laid','Points','Text','Hours','Productivity'];
+  document.getElementById('tblCount').textContent=filtered.length+' sessions';
+  document.getElementById('tbl').innerHTML='<thead><tr>'+labels.map(function(l){return'<th>'+l+'</th>';}).join('')+'</tr></thead><tbody>'+filtered.slice(0,40).map(function(r,i){return'<tr>'+cols.map(function(c){if(c==='productivity_rate')return'<td><span class="badge">'+fmt(r[c])+' ft/hr</span></td>';if(c==='feet_line')return'<td style="color:#1B4DFF;font-weight:600">'+fmt(r[c])+'</td>';if(c==='hour')return'<td>'+String(r[c]).slice(0,10)+'</td>';if(typeof r[c]==='number')return'<td>'+Number(r[c]).toFixed(c==='robot_hours'?1:0)+'</td>';return'<td>'+(r[c]||'—')+'</td>';}).join('')+'</tr>';}).join('')+'</tbody>';
+  document.getElementById('tblMore').textContent=filtered.length>40?'Showing 40 of '+filtered.length+' · export CSV for full data':'';
 }
 
-// ── EXPORT ───────────────────────────────────────────────────────────────────
-function exportCSV(){
+function doExport(){
   if(!filtered.length)return;
-  const h=Object.keys(filtered[0]).join(',');
-  const rows=filtered.map(r=>Object.values(r).join(',')).join('\n');
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h+'\n'+rows],{type:'text/csv'}));a.download='dusty-export.csv';a.click();
+  var h=Object.keys(filtered[0]).join(',');
+  var rows=filtered.map(function(r){return Object.values(r).join(',');}).join('\n');
+  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h+'\n'+rows],{type:'text/csv'}));a.download='dusty-export.csv';a.click();
 }
 
-// ── TABS ─────────────────────────────────────────────────────────────────────
 function switchTab(id,el){
-  document.getElementById('tab-dashboard').style.display=id==='dashboard'?'block':'none';
-  document.getElementById('tab-funnelstory').style.display=id==='funnelstory'?'block':'none';
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-dash').style.display=id==='dash'?'block':'none';
+  document.getElementById('tab-fs').style.display=id==='fs'?'block':'none';
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
   el.classList.add('active');
 }
 
-function copyPrompt(btn){
-  const text=btn.closest('.prompt-card').querySelector('.prompt-text').textContent;
-  navigator.clipboard.writeText(text).then(()=>{btn.textContent='Copied ✓';btn.style.color='#059669';setTimeout(()=>{btn.textContent='Copy';btn.style.color='';},2000);});
+function copyP(btn){
+  var text=btn.closest('.prompt-card').querySelector('.prompt-text').textContent;
+  navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied ✓';btn.style.color='#059669';setTimeout(function(){btn.textContent='Copy';btn.style.color='';},2000);});
 }
 
-// ── DRAG DROP ────────────────────────────────────────────────────────────────
-const dz=document.getElementById('dropzone');
-dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag');});
-dz.addEventListener('dragleave',()=>dz.classList.remove('drag'));
-dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag');const f=e.dataTransfer.files[0];if(f){const inp=document.getElementById('fileIn');const dt=new DataTransfer();dt.items.add(f);inp.files=dt.files;loadFile(inp);}});
+var dz=document.getElementById('dz');
+dz.addEventListener('dragover',function(e){e.preventDefault();dz.classList.add('drag');});
+dz.addEventListener('dragleave',function(){dz.classList.remove('drag');});
+dz.addEventListener('drop',function(e){e.preventDefault();dz.classList.remove('drag');var f=e.dataTransfer.files[0];if(f){var inp=document.getElementById('fi');var dt=new DataTransfer();dt.items.add(f);inp.files=dt.files;loadFile(inp);}});
 
-// ── INIT ─────────────────────────────────────────────────────────────────────
-function render(){renderBanner();renderModes();renderHero();renderKPIs();renderCrewBtns();updateROI();renderDelivered();renderCharts();renderTable();}
-buildAccountSel();autoDetectMode();render();
+init();
 </script>
 </body>
 </html>
