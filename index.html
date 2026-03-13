@@ -8,10 +8,9 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F4F6FA;min-height:100vh;color:#1e293b}
-:root{--blue:#1B4DFF;--dark:#0A1628;--accent:#00C2FF;--gray:#F4F6FA}
+:root{--blue:#1B4DFF;--dark:#0A1628;--accent:#00C2FF}
 
-/* Header */
-.header{background:var(--dark);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:12;flex-wrap:wrap;gap:10px}
+.header{background:var(--dark);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .logo{display:flex;align-items:center;gap:10px}
 .logo-text{color:#fff;font-weight:700;font-size:16px;letter-spacing:-.4px}
 .logo-sub{color:#64748b;font-size:11px;text-transform:uppercase;letter-spacing:.3px;margin-top:1px}
@@ -20,80 +19,95 @@ select.hsel{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-rad
 .btn-primary{background:var(--blue);color:#fff;border:none;border-radius:6px;padding:7px 16px;font-size:13px;cursor:pointer;font-weight:600}
 .btn-secondary{background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:6px;padding:7px 12px;font-size:13px;cursor:pointer}
 
-/* Tabs */
 .tabs{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 28px;display:flex;gap:0}
 .tab{padding:14px 20px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:#64748b;transition:all .15s;white-space:nowrap}
 .tab.active{color:var(--blue);border-bottom-color:var(--blue)}
-.tab:hover{color:#1e293b}
 
-.main{max-width:1100px;margin:0 auto;padding:0 24px 48px}
+.main{max-width:1140px;margin:0 auto;padding:0 24px 48px}
 
-/* Drop zone */
 .dropzone{margin:16px 0 0;border:2px dashed #cbd5e1;border-radius:10px;padding:16px 24px;text-align:center;background:#fff;cursor:pointer;font-size:13px;color:#64748b;transition:all .15s}
 .dropzone.drag{border-color:var(--blue);background:#eff6ff}
 
-/* KPI grid */
-.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}
-.kpi{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 18px;border-top:3px solid var(--c,#1B4DFF)}
-.kpi-label{font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;font-weight:500}
-.kpi-value{font-size:22px;font-weight:700;color:#0A1628;margin-top:6px;letter-spacing:-.5px}
+/* Suggested story banner */
+.suggest-banner{margin-top:16px;border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.suggest-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;opacity:.7}
+.suggest-title{font-size:15px;font-weight:700}
+.suggest-sub{font-size:12px;margin-top:3px;opacity:.75}
+
+/* Mode selector */
+.mode-bar{margin-top:12px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 18px}
+.mode-label{font-size:11px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.mode-btns{display:flex;gap:8px;flex-wrap:wrap}
+.mode-btn{border-radius:8px;padding:8px 14px;font-size:12px;cursor:pointer;font-weight:500;border:1.5px solid #e2e8f0;background:#f8f9fb;color:#475569;transition:all .15s;display:flex;align-items:center;gap:5px}
+.mode-btn.active{color:#fff;font-weight:600}
+.mode-btn .suggested-tag{background:rgba(255,255,255,0.25);border-radius:3px;padding:1px 5px;font-size:10px;margin-left:4px}
+
+/* Hero section */
+.hero-grid{display:grid;gap:14px;margin-top:14px}
+.hero-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px 28px}
+.hero-number{font-size:48px;font-weight:800;letter-spacing:-2px;line-height:1;margin:8px 0}
+.hero-label{font-size:13px;color:#64748b;font-weight:500}
+.hero-sub{font-size:12px;color:#94a3b8;margin-top:6px}
+.hero-context{font-size:13px;color:#475569;margin-top:12px;line-height:1.6;padding-top:12px;border-top:1px solid #f1f5f9}
+
+/* Talking points */
+.talking-points{background:#f8f9fb;border-radius:8px;padding:14px 16px;margin-top:12px}
+.tp-label{font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.tp-item{display:flex;gap:10px;margin-bottom:8px;font-size:13px;color:#334155;line-height:1.5}
+.tp-item:last-child{margin-bottom:0}
+.tp-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);margin-top:6px;flex-shrink:0}
+
+/* KPI strip */
+.kpi-strip{display:grid;gap:10px;margin-top:14px}
+.kpi{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;border-top:3px solid var(--c,#1B4DFF)}
+.kpi-label{font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:.4px;font-weight:500}
+.kpi-value{font-size:20px;font-weight:700;color:#0A1628;margin-top:4px;letter-spacing:-.4px}
 .kpi-sub{font-size:11px;color:#94a3b8;margin-top:2px}
 
-/* Lens bar */
-.lens-bar{margin-top:14px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px 20px}
-.lens-label{font-size:12px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
-.lens-btns{display:flex;gap:8px;flex-wrap:wrap}
-.lens-btn{border-radius:8px;padding:9px 16px;font-size:13px;cursor:pointer;font-weight:400;display:flex;align-items:center;gap:6px;transition:all .15s;border:1.5px solid #e2e8f0;background:#f8f9fb;color:#475569}
-.lens-btn.active{color:#fff;font-weight:600}
-
-/* ROI calc */
-.roi-box{margin-top:12px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:18px 22px}
-.roi-title{font-size:13px;font-weight:600;color:#1e40af;margin-bottom:12px}
-.roi-row{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
-.roi-stat{margin-left:auto;text-align:right}
-.roi-stat-label{font-size:11px;color:#3b82f6;font-weight:500}
-.roi-stat-value{font-size:26px;font-weight:700;color:var(--blue)}
-.roi-stat-sub{font-size:12px;color:#60a5fa}
-.crew-btns{display:flex;gap:6px}
-.crew-btn{width:34px;height:34px;border-radius:6px;border:1.5px solid #bfdbfe;background:#fff;color:#3b82f6;font-weight:600;cursor:pointer;font-size:13px}
+/* ROI calculator */
+.roi-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:18px 22px;margin-top:14px}
+.roi-title{font-size:13px;font-weight:600;color:#1e40af;margin-bottom:14px}
+.roi-row{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-end}
+.roi-field{display:flex;flex-direction:column;gap:5px}
+.roi-field label{font-size:11px;color:#3b82f6;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.roi-field input{border:1.5px solid #bfdbfe;border-radius:6px;padding:7px 10px;font-size:14px;width:110px;color:#0A1628;font-weight:600;background:#fff}
+.crew-btns{display:flex;gap:5px}
+.crew-btn{width:34px;height:34px;border-radius:6px;border:1.5px solid #bfdbfe;background:#fff;color:#3b82f6;font-weight:600;cursor:pointer;font-size:13px;transition:all .15s}
 .crew-btn.active{border-color:var(--blue);background:var(--blue);color:#fff}
-.field-label{font-size:11px;color:#3b82f6;font-weight:500;margin-bottom:4px}
-input.rate-input{border:1.5px solid #bfdbfe;border-radius:6px;padding:7px 10px;font-size:14px;width:90px;color:#0A1628;font-weight:600}
+.roi-result{margin-left:auto;text-align:right;background:#fff;border-radius:8px;padding:14px 18px;border:1px solid #bfdbfe;min-width:220px}
+.roi-result-label{font-size:11px;color:#3b82f6;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.roi-result-value{font-size:28px;font-weight:800;color:var(--blue);letter-spacing:-1px;margin-top:4px}
+.roi-result-sub{font-size:12px;color:#60a5fa;margin-top:3px}
+.advanced-toggle{font-size:11px;color:#93c5fd;cursor:pointer;margin-top:10px;display:inline-block}
+.advanced-row{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #bfdbfe;gap:20px;flex-wrap:wrap;align-items:flex-end}
+.advanced-row.show{display:flex}
+.dollar-result{background:#dbeafe;border-radius:6px;padding:10px 14px;margin-top:10px;font-size:13px;color:#1e40af}
 
 /* Charts */
 .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .chart-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px 20px}
-.chart-title{font-size:13px;font-weight:600;color:#0A1628;margin-bottom:14px}
-
-/* AI story */
-.story-card{margin-top:14px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:20px 24px}
-.story-header{display:flex;justify-content:space-between;align-items:center}
-.story-meta{font-size:12px;color:#94a3b8;margin-top:2px}
-.story-body{margin-top:16px;border-top:1px solid #f1f5f9;padding-top:16px}
-.story-body p{font-size:14px;line-height:1.75;color:#334155;margin-bottom:12px}
-.story-actions{display:flex;gap:8px;margin-top:14px}
-.btn-copy{background:#f8f9fb;border:1px solid #e2e8f0;border-radius:6px;padding:7px 14px;font-size:12px;cursor:pointer;color:#475569}
-.btn-clear{background:none;border:none;color:#94a3b8;font-size:12px;cursor:pointer;padding:7px 10px}
+.chart-title{font-size:13px;font-weight:600;color:#0A1628;margin-bottom:4px}
+.chart-sub{font-size:11px;color:#94a3b8;margin-bottom:14px}
+.no-chart{display:flex;align-items:center;justify-content:center;height:200px;color:#94a3b8;font-size:13px;text-align:center;line-height:1.6}
+.growth-badge{display:inline-flex;align-items:center;gap:4px;background:#dcfce7;color:#166534;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:8px}
+.decline-badge{background:#fee2e2;color:#991b1b}
 
 /* Table */
 .table-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;margin-top:14px;overflow:hidden}
 .table-header{padding:14px 20px;border-bottom:1px solid #f1f5f9;display:flex;justify-content:space-between;align-items:center}
-.table-header span{font-weight:600;font-size:14px}
-.table-header small{font-size:12px;color:#94a3b8}
-.tbl{width:100%;border-collapse:collapse;font-size:12px;overflow-x:auto;display:block}
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
 .tbl th{padding:9px 14px;text-align:left;font-weight:500;color:#64748b;border-bottom:1px solid #f1f5f9;white-space:nowrap;background:#f8f9fb}
 .tbl td{padding:8px 14px;color:#475569;white-space:nowrap;border-bottom:1px solid #f8f9fb}
 .tbl tr:nth-child(even) td{background:#fafafa}
 .badge{background:#eff6ff;color:var(--blue);border-radius:4px;padding:2px 8px;font-size:11px;font-weight:600}
-.table-more{padding:10px 20px;font-size:12px;color:#94a3b8}
 
-/* ── FunnelStory tab ── */
+/* FunnelStory tab */
 .fs-wrap{padding:20px 0}
 .fs-intro{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:20px 24px;margin-bottom:16px}
 .fs-intro h2{font-size:16px;font-weight:600;color:#0A1628;margin-bottom:6px}
 .fs-intro p{font-size:13px;color:#64748b;line-height:1.6}
 .fs-section{margin-bottom:24px}
-.fs-section-title{font-size:13px;font-weight:700;color:#0A1628;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;padding-left:4px;border-left:3px solid var(--blue);padding-left:10px}
+.fs-section-title{font-size:13px;font-weight:700;color:#0A1628;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;padding-left:10px;border-left:3px solid var(--blue)}
 .prompt-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:18px 20px;margin-bottom:10px;position:relative}
 .prompt-situation{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
 .prompt-title{font-size:14px;font-weight:600;color:#1e293b;margin-bottom:8px}
@@ -104,19 +118,15 @@ input.rate-input{border:1.5px solid #bfdbfe;border-radius:6px;padding:7px 10px;f
 .prompt-tag{background:#f1f5f9;color:#64748b;border-radius:4px;padding:2px 8px;font-size:11px}
 .fs-tip{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px 16px;font-size:12px;color:#92400e;margin-bottom:16px;line-height:1.5}
 
-@media(max-width:700px){
-  .kpi-grid{grid-template-columns:repeat(2,1fr)}
-  .chart-grid{grid-template-columns:1fr}
-}
+@media(max-width:700px){.chart-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <div class="logo">
     <svg width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#1B4DFF"/><path d="M8 22 L16 10 L24 22" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><circle cx="16" cy="22" r="2.5" fill="#00C2FF"/></svg>
-    <div><div class="logo-text">Dusty Robotics</div><div class="logo-sub">CS Renewal Tool</div></div>
+    <div><div class="logo-text">Dusty Robotics</div><div class="logo-sub" id="dataSourceLabel">CS Renewal Tool · Sample data</div></div>
   </div>
   <div class="header-right">
     <select class="hsel" id="acctSel" onchange="onAccountChange()"><option value="All">All accounts</option></select>
@@ -126,90 +136,96 @@ input.rate-input{border:1.5px solid #bfdbfe;border-radius:6px;padding:7px 10px;f
   </div>
 </div>
 
-<!-- TABS -->
 <div class="tabs">
   <div class="tab active" onclick="switchTab('dashboard',this)">📊 Dashboard</div>
   <div class="tab" onclick="switchTab('funnelstory',this)">🔍 FunnelStory Prompts</div>
 </div>
 
-<!-- ═══════════════════════════ DASHBOARD TAB ═══════════════════════════ -->
+<!-- DASHBOARD -->
 <div id="tab-dashboard">
 <div class="main">
+
   <div class="dropzone" id="dropzone" onclick="document.getElementById('fileIn').click()">
-    Drop your usage CSV here or click to upload · sample data shown below
+    Drop your Dusty usage CSV here or click to upload · sample data shown below
   </div>
 
-  <!-- KPIs -->
-  <div class="kpi-grid" id="kpiGrid"></div>
+  <!-- Suggested story banner -->
+  <div class="suggest-banner" id="suggestBanner"></div>
 
-  <!-- Lens selector -->
-  <div class="lens-bar">
-    <div class="lens-label">Choose your narrative lens</div>
-    <div class="lens-btns" id="lensBtns"></div>
+  <!-- Mode selector -->
+  <div class="mode-bar">
+    <div class="mode-label">Story mode — auto-suggested above, or choose your own</div>
+    <div class="mode-btns" id="modeBtns"></div>
   </div>
 
-  <!-- ROI calc (shown on roi lens) -->
-  <div class="roi-box" id="roiBox" style="display:none">
-    <div class="roi-title">⚡ Manual layout comparison</div>
+  <!-- Hero section -->
+  <div id="heroSection"></div>
+
+  <!-- KPI strip -->
+  <div class="kpi-strip" id="kpiStrip" style="grid-template-columns:repeat(4,1fr)"></div>
+
+  <!-- ROI Calculator -->
+  <div class="roi-box" id="roiBox">
+    <div class="roi-title">⚡ Manual layout comparison — adjust to match this customer's crew</div>
     <div class="roi-row">
-      <div>
-        <div class="field-label">Manual crew size</div>
+      <div class="roi-field">
+        <label>Manual crew size</label>
         <div class="crew-btns" id="crewBtns"></div>
       </div>
-      <div>
-        <div class="field-label">Manual rate (ft/hr per worker)</div>
-        <input class="rate-input" type="number" id="manualRate" value="250" oninput="updateROI()"/>
-        <span style="font-size:11px;color:#93c5fd;margin-left:6px">default: 250 ft/hr</span>
+      <div class="roi-field">
+        <label>Manual rate (ft/hr per worker)</label>
+        <input type="number" id="manualRate" value="250" oninput="updateROI()"/>
+        <span style="font-size:11px;color:#93c5fd;margin-top:2px">industry default: 250 ft/hr</span>
       </div>
-      <div class="roi-stat" id="roiStat"></div>
+      <div class="roi-result" id="roiResult"></div>
+    </div>
+    <span class="advanced-toggle" onclick="toggleAdvanced()">+ Show dollar value estimate</span>
+    <div class="advanced-row" id="advancedRow">
+      <div class="roi-field">
+        <label>Labor cost per hour ($/hr)</label>
+        <input type="number" id="laborRate" value="85" oninput="updateROI()"/>
+        <span style="font-size:11px;color:#93c5fd;margin-top:2px">typical layout worker rate</span>
+      </div>
+      <div id="dollarResult"></div>
     </div>
   </div>
 
   <!-- Charts -->
-  <div class="chart-grid">
-    <div class="chart-card"><div class="chart-title" id="chart1Title">Linear feet over time</div><canvas id="chart1" height="200"></canvas></div>
-    <div class="chart-card"><div class="chart-title" id="chart2Title">Sessions per month</div><canvas id="chart2" height="200"></canvas></div>
+  <div class="chart-grid" id="chartGrid">
+    <div class="chart-card"><div class="chart-title" id="c1Title"></div><div class="chart-sub" id="c1Sub"></div><div id="c1Wrap"><canvas id="chart1" height="200"></canvas></div></div>
+    <div class="chart-card"><div class="chart-title" id="c2Title"></div><div class="chart-sub" id="c2Sub"></div><div id="c2Wrap"><canvas id="chart2" height="200"></canvas></div></div>
   </div>
 
-  <!-- Story generator -->
-  <div class="story-card">
-    <div class="story-header">
-      <div>
-        <div style="font-size:14px;font-weight:600;color:#0A1628" id="storyTitle">✦ Generate talking points</div>
-        <div class="story-meta" id="storyMeta">AI-written narrative based on actual usage data</div>
-      </div>
-      <button class="btn-primary" id="storyBtn" onclick="generateStory()">Generate story ✦</button>
+  <!-- FunnelStory callout -->
+  <div style="margin-top:14px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:#1e40af">🔍 Ready to build your narrative?</div>
+      <div style="font-size:12px;color:#3b82f6;margin-top:3px">Use the data above, then grab a prompt from the FunnelStory tab to pull in health scores, renewal context, and SFDC signals.</div>
     </div>
-    <div class="story-body" id="storyBody" style="display:none"></div>
+    <button class="btn-primary" onclick="switchTab('funnelstory',document.querySelectorAll('.tab')[1])">Open FunnelStory Prompts →</button>
   </div>
 
   <!-- Table -->
   <div class="table-card">
-    <div class="table-header"><span>Session detail</span><small id="tableCount"></small></div>
+    <div class="table-header"><span style="font-weight:600;font-size:14px">Session detail</span><small id="tableCount" style="font-size:12px;color:#94a3b8"></small></div>
     <div style="overflow-x:auto"><table class="tbl" id="dataTable"></table></div>
-    <div class="table-more" id="tableMore"></div>
+    <div style="padding:10px 20px;font-size:12px;color:#94a3b8" id="tableMore"></div>
   </div>
+
 </div>
 </div>
 
-<!-- ═══════════════════════════ FUNNELSTORY TAB ═══════════════════════════ -->
+<!-- FUNNELSTORY TAB -->
 <div id="tab-funnelstory" style="display:none">
-<div class="main">
-<div class="fs-wrap">
-
+<div class="main"><div class="fs-wrap">
   <div class="fs-intro">
     <h2>FunnelStory AI Prompt Library</h2>
-    <p>Copy any prompt below and paste it directly into FunnelStory's AI assistant. Each prompt is designed to surface the most relevant data for a specific conversation type. Customize the <strong>[bracketed fields]</strong> before sending.</p>
+    <p>Copy any prompt below and paste it directly into FunnelStory's AI assistant. Customize the <strong>[bracketed fields]</strong> before sending. Pair these with the dashboard data for a complete renewal story.</p>
   </div>
+  <div class="fs-tip">💡 <strong>Pro tip:</strong> Run the "Pre-call snapshot" prompt first to get the full picture, then pick the conversation-specific prompt that matches what you're walking into.</div>
 
-  <div class="fs-tip">
-    💡 <strong>Pro tip:</strong> Before your call, run the "Pre-call snapshot" prompt first to get a full picture, then pick the conversation-specific prompt that matches what you're walking into.
-  </div>
-
-  <!-- SECTION 1 -->
   <div class="fs-section">
     <div class="fs-section-title">Renewal Conversations</div>
-
     <div class="prompt-card">
       <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
       <div class="prompt-situation">Renewal · Pre-call prep</div>
@@ -217,7 +233,6 @@ input.rate-input{border:1.5px solid #bfdbfe;border-radius:6px;padding:7px 10px;f
       <div class="prompt-text">Give me a complete usage and health snapshot for [ACCOUNT NAME] ahead of their renewal on [DATE]. Include: total linear feet laid and robot hours over the contract period, month-over-month usage trend, number of projects and robots deployed, any usage dips or gaps, and their productivity rate compared to our average customer. Flag anything that could come up as a risk or objection in the renewal conversation.</div>
       <div class="prompt-tags"><span class="prompt-tag">renewal</span><span class="prompt-tag">pre-call</span><span class="prompt-tag">health</span></div>
     </div>
-
     <div class="prompt-card">
       <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
       <div class="prompt-situation">Renewal · ROI framing</div>
@@ -225,150 +240,113 @@ input.rate-input{border:1.5px solid #bfdbfe;border-radius:6px;padding:7px 10px;f
       <div class="prompt-text">For [ACCOUNT NAME], help me build a business value narrative that goes beyond time savings. Using their usage data, show me: (1) how much layout work their team has completed with Dusty vs what a manual crew would have needed to deliver the same output, (2) which projects had the highest output density suggesting Dusty enabled work that would have been hard to staff manually, (3) whether their project count or scope has grown since they started with Dusty. Frame this as labor reallocation and capacity expansion, not hours saved.</div>
       <div class="prompt-tags"><span class="prompt-tag">renewal</span><span class="prompt-tag">ROI</span><span class="prompt-tag">value</span></div>
     </div>
-
     <div class="prompt-card">
       <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Renewal · Objection prep</div>
-      <div class="prompt-title">Prepare for "we're not sure we're getting value"</div>
-      <div class="prompt-text">I'm going into a renewal with [ACCOUNT NAME] and I expect a "not sure we're getting value" objection. Pull the strongest data points I can use to counter this — their busiest months, their highest-output projects, any periods where usage accelerated. Also flag: are there projects where they clearly relied heavily on Dusty? What would have been difficult to deliver without it? Give me 3-4 specific data-backed talking points I can use in the meeting.</div>
-      <div class="prompt-tags"><span class="prompt-tag">renewal</span><span class="prompt-tag">objection handling</span></div>
+      <div class="prompt-situation">Renewal · Price objection</div>
+      <div class="prompt-title">Prepare for "Dusty is priced too high"</div>
+      <div class="prompt-text">I'm going into a renewal with [ACCOUNT NAME] and I expect a price objection. Pull the strongest data points I can use to justify the investment — their busiest months, their highest-output projects, total linear feet laid over the contract period. Then help me frame the cost not as a software subscription but as the cost of a high-precision layout capability they couldn't staff manually. Give me 3 specific data-backed talking points and one question I can ask them to get them to articulate the value themselves.</div>
+      <div class="prompt-tags"><span class="prompt-tag">renewal</span><span class="prompt-tag">price objection</span><span class="prompt-tag">ROI</span></div>
     </div>
   </div>
 
-  <!-- SECTION 2 -->
+  <div class="fs-section">
+    <div class="fs-section-title">Pipeline & Growth</div>
+    <div class="prompt-card">
+      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
+      <div class="prompt-situation">Pipeline · Project gap risk</div>
+      <div class="prompt-title">Project pipeline slowing — get ahead of it</div>
+      <div class="prompt-text">Usage for [ACCOUNT NAME] appears to be slowing or their active project count is declining. Before I get on the phone with them, help me understand: is this a natural project gap between jobs, or a sign of disengagement? What does their historical project cadence look like — how long have gaps typically lasted before? What projects do they have in their SFDC pipeline that could be Dusty candidates? Give me language to open a proactive conversation about their upcoming pipeline without sounding like I'm worried about churn.</div>
+      <div class="prompt-tags"><span class="prompt-tag">pipeline</span><span class="prompt-tag">at-risk</span><span class="prompt-tag">proactive</span></div>
+    </div>
+    <div class="prompt-card">
+      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
+      <div class="prompt-situation">Growth · Expansion signal</div>
+      <div class="prompt-title">Find signals they're ready for more</div>
+      <div class="prompt-text">For [ACCOUNT NAME], look for signals they may be hitting capacity constraints with their current Dusty deployment. Are there months where robot utilization was unusually high? Projects where they could have run work in parallel with a second robot? Project types in their portfolio where they haven't deployed Dusty yet? Give me the 2-3 strongest signals I can use to open an expansion conversation naturally, and suggest the most logical next project type or site for them to expand into.</div>
+      <div class="prompt-tags"><span class="prompt-tag">expansion</span><span class="prompt-tag">growth</span><span class="prompt-tag">upsell</span></div>
+    </div>
+  </div>
+
   <div class="fs-section">
     <div class="fs-section-title">QBR / Business Reviews</div>
-
     <div class="prompt-card">
       <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
       <div class="prompt-situation">QBR · Opening story</div>
-      <div class="prompt-title">Tell the story of this quarter in 3 highlights</div>
+      <div class="prompt-title">3 headline moments to open a QBR</div>
       <div class="prompt-text">Summarize [ACCOUNT NAME]'s Dusty usage for [Q + YEAR] in 3 headline moments I can open a QBR with. Each highlight should be a specific, concrete data point — their biggest output month, their most-used robot or project, a productivity milestone. Make each one feel like something worth celebrating, not just a number. Format as three short punchy statements I can put on a slide.</div>
       <div class="prompt-tags"><span class="prompt-tag">QBR</span><span class="prompt-tag">storytelling</span><span class="prompt-tag">slides</span></div>
     </div>
-
     <div class="prompt-card">
       <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
       <div class="prompt-situation">QBR · Trend analysis</div>
       <div class="prompt-title">Usage trend and what's driving it</div>
-      <div class="prompt-text">For [ACCOUNT NAME], show me the usage trend over the last [3/6/12] months and help me explain what's driving it. Is usage growing, plateauing, or dipping? Which projects are driving the most activity? Are there signs that they're expanding how they use Dusty (more robots, new project types, new sites)? Give me a narrative I can walk through with the customer that shows we understand their business, not just their usage metrics.</div>
+      <div class="prompt-text">For [ACCOUNT NAME], show me the usage trend over the last [3/6/12] months and help me explain what's driving it. Is usage growing, plateauing, or dipping? Which projects are driving the most activity? Are there signs they're expanding how they use Dusty — more robots, new project types, new sites? Give me a narrative I can walk through with the customer that shows we understand their business, not just their usage metrics.</div>
       <div class="prompt-tags"><span class="prompt-tag">QBR</span><span class="prompt-tag">trends</span><span class="prompt-tag">analysis</span></div>
     </div>
   </div>
 
-  <!-- SECTION 3 -->
   <div class="fs-section">
-    <div class="fs-section-title">At-Risk Accounts</div>
-
+    <div class="fs-section-title">Quick Pulls</div>
     <div class="prompt-card">
       <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">At-risk · Diagnosis</div>
-      <div class="prompt-title">Why is usage down — and what do I do about it?</div>
-      <div class="prompt-text">Usage for [ACCOUNT NAME] has dropped in the last [TIMEFRAME]. Help me diagnose why before I get on the phone with them. Show me: when the drop started, which projects or robots went quiet, whether this looks like a project gap (they finished a job and haven't started the next) or a real disengagement signal. Then suggest 2-3 questions I can ask on the call to figure out what's actually going on without sounding like I'm reading from a dashboard.</div>
-      <div class="prompt-tags"><span class="prompt-tag">at-risk</span><span class="prompt-tag">churn</span><span class="prompt-tag">diagnosis</span></div>
-    </div>
-
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">At-risk · Save conversation</div>
-      <div class="prompt-title">Build a re-engagement case</div>
-      <div class="prompt-text">I need to re-engage [ACCOUNT NAME] who has been underusing Dusty. Pull their strongest historical usage data — their best months, their most successful projects, their peak productivity rate. I want to remind them of what good looked like when they were fully engaged, and contrast it with where they are now. Help me frame this as "here's what your team was able to do" rather than "here's why you're not using it enough."</div>
-      <div class="prompt-tags"><span class="prompt-tag">at-risk</span><span class="prompt-tag">re-engagement</span><span class="prompt-tag">save</span></div>
-    </div>
-  </div>
-
-  <!-- SECTION 4 -->
-  <div class="fs-section">
-    <div class="fs-section-title">Expansion Conversations</div>
-
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Expansion · Upsell trigger</div>
-      <div class="prompt-title">Find the signal that they're ready for more</div>
-      <div class="prompt-text">For [ACCOUNT NAME], look for signals that they may be hitting capacity constraints with their current Dusty deployment. Are there months where robot utilization was unusually high? Projects where they had to sequence work that could have run in parallel with a second robot? A growing backlog of project types they haven't deployed Dusty on yet? Give me the 2-3 strongest signals I can use to open an expansion conversation naturally, without it feeling like a sales push.</div>
-      <div class="prompt-tags"><span class="prompt-tag">expansion</span><span class="prompt-tag">upsell</span><span class="prompt-tag">growth</span></div>
-    </div>
-
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Expansion · New project types</div>
-      <div class="prompt-title">Where are they NOT using Dusty yet?</div>
-      <div class="prompt-text">Based on [ACCOUNT NAME]'s current project portfolio in FunnelStory and their Dusty usage history, identify project types or sites where they are active but haven't deployed Dusty. Cross-reference their SFDC opportunity data with their usage data. Where are the gaps? Which of those gaps represent the most natural expansion opportunity based on project size, complexity, or similarity to projects where they've already had success with Dusty?</div>
-      <div class="prompt-tags"><span class="prompt-tag">expansion</span><span class="prompt-tag">new projects</span><span class="prompt-tag">whitespace</span></div>
-    </div>
-  </div>
-
-  <!-- SECTION 5 -->
-  <div class="fs-section">
-    <div class="fs-section-title">Quick Pulls (use anytime)</div>
-
-    <div class="prompt-card">
-      <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Quick pull · One-liner stat</div>
+      <div class="prompt-situation">Quick pull · One stat</div>
       <div class="prompt-title">Give me one number to lead with</div>
-      <div class="prompt-text">For [ACCOUNT NAME], what is the single most impressive usage statistic from the last [TIMEFRAME] that I could lead with in a conversation? It should be concrete, specific, and feel significant — something like a total output milestone, a record month, or a productivity benchmark. Give me the stat, a one-sentence way to say it out loud, and one follow-up question I can ask the customer after I share it.</div>
-      <div class="prompt-tags"><span class="prompt-tag">quick</span><span class="prompt-tag">stat</span><span class="prompt-tag">any call</span></div>
+      <div class="prompt-text">For [ACCOUNT NAME], what is the single most impressive usage statistic from the last [TIMEFRAME] that I could lead with in a conversation? It should be concrete, specific, and feel significant — a total output milestone, a record month, or a productivity benchmark. Give me the stat, a one-sentence way to say it out loud, and one follow-up question I can ask the customer after I share it.</div>
+      <div class="prompt-tags"><span class="prompt-tag">quick</span><span class="prompt-tag">any call</span></div>
     </div>
-
     <div class="prompt-card">
       <button class="prompt-copy" onclick="copyPrompt(this)">Copy</button>
-      <div class="prompt-situation">Quick pull · Compare to peers</div>
+      <div class="prompt-situation">Quick pull · Peer comparison</div>
       <div class="prompt-title">How do they stack up against similar customers?</div>
-      <div class="prompt-text">How does [ACCOUNT NAME]'s usage and productivity rate compare to other Dusty customers of similar size and project type? Are they above average, average, or underperforming relative to peers? If they're above average, give me language to celebrate that with them. If they're below average, help me frame it as an opportunity — not a criticism — and suggest what's driving the gap.</div>
-      <div class="prompt-tags"><span class="prompt-tag">benchmarking</span><span class="prompt-tag">peer comparison</span><span class="prompt-tag">any call</span></div>
+      <div class="prompt-text">How does [ACCOUNT NAME]'s usage and productivity rate compare to other Dusty customers of similar size and project type? Are they above average, average, or underperforming? If above average, give me language to celebrate that. If below average, help me frame it as an opportunity — not a criticism — and suggest what's driving the gap and how we can close it together.</div>
+      <div class="prompt-tags"><span class="prompt-tag">benchmarking</span><span class="prompt-tag">any call</span></div>
     </div>
-
   </div>
-</div>
-</div>
+</div></div>
 </div>
 
 <script>
-// ─── DATA ───────────────────────────────────────────────────────────────────
 const SAMPLE=[
   {hour:"2024-01-03",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 12 - Core",feet_line:4200,point:310,text:42,print_quantity:3,robot_hours:6.2,productivity_rate:677,layout_id:"LY-001",portal_name:"webcor"},
   {hour:"2024-01-04",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 12 - Core",feet_line:5100,point:380,text:51,print_quantity:4,robot_hours:7.8,productivity_rate:654,layout_id:"LY-002",portal_name:"webcor"},
   {hour:"2024-01-08",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-044",project_name:"Level 13 - Shell",feet_line:3800,point:290,text:38,print_quantity:3,robot_hours:5.5,productivity_rate:691,layout_id:"LY-003",portal_name:"webcor"},
-  {hour:"2024-01-10",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 13 - Shell",feet_line:5600,point:420,text:58,print_quantity:4,robot_hours:8.1,productivity_rate:691,layout_id:"LY-004",portal_name:"webcor"},
-  {hour:"2024-01-15",account:"DPR Construction",opp_name:"Austin Medical Center",robot:"DR-051",project_name:"OR Suite A",feet_line:2900,point:210,text:29,print_quantity:2,robot_hours:4.2,productivity_rate:690,layout_id:"LY-005",portal_name:"dpr"},
-  {hour:"2024-01-18",account:"DPR Construction",opp_name:"Austin Medical Center",robot:"DR-051",project_name:"OR Suite B",feet_line:6200,point:460,text:63,print_quantity:5,robot_hours:9.0,productivity_rate:689,layout_id:"LY-006",portal_name:"dpr"},
-  {hour:"2024-01-22",account:"DPR Construction",opp_name:"Austin Medical Center",robot:"DR-051",project_name:"ICU Floor 2",feet_line:5000,point:370,text:50,print_quantity:4,robot_hours:7.3,productivity_rate:685,layout_id:"LY-007",portal_name:"dpr"},
+  {hour:"2024-01-10",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 13",feet_line:5600,point:420,text:58,print_quantity:4,robot_hours:8.1,productivity_rate:691,layout_id:"LY-004",portal_name:"webcor"},
+  {hour:"2024-01-15",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"OR Suite A",feet_line:2900,point:210,text:29,print_quantity:2,robot_hours:4.2,productivity_rate:690,layout_id:"LY-005",portal_name:"dpr"},
+  {hour:"2024-01-18",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"OR Suite B",feet_line:6200,point:460,text:63,print_quantity:5,robot_hours:9.0,productivity_rate:689,layout_id:"LY-006",portal_name:"dpr"},
+  {hour:"2024-01-22",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"ICU Floor 2",feet_line:5000,point:370,text:50,print_quantity:4,robot_hours:7.3,productivity_rate:685,layout_id:"LY-007",portal_name:"dpr"},
   {hour:"2024-01-25",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Hall B - East",feet_line:4600,point:340,text:46,print_quantity:3,robot_hours:6.8,productivity_rate:676,layout_id:"LY-008",portal_name:"skanska"},
   {hour:"2024-02-01",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Hall B - West",feet_line:5800,point:430,text:59,print_quantity:4,robot_hours:8.4,productivity_rate:690,layout_id:"LY-009",portal_name:"skanska"},
   {hour:"2024-02-05",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-039",project_name:"Hall C",feet_line:4900,point:360,text:49,print_quantity:4,robot_hours:7.1,productivity_rate:690,layout_id:"LY-010",portal_name:"skanska"},
   {hour:"2024-02-08",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-042",project_name:"Level 14",feet_line:4000,point:295,text:40,print_quantity:3,robot_hours:5.9,productivity_rate:678,layout_id:"LY-011",portal_name:"webcor"},
   {hour:"2024-02-12",account:"Webcor Builders",opp_name:"Salesforce Tower P2",robot:"DR-044",project_name:"Level 14",feet_line:6100,point:452,text:62,print_quantity:5,robot_hours:8.8,productivity_rate:693,layout_id:"LY-012",portal_name:"webcor"},
-  {hour:"2024-02-15",account:"DPR Construction",opp_name:"Austin Medical Center",robot:"DR-051",project_name:"Lab Floor 3",feet_line:4400,point:325,text:44,print_quantity:3,robot_hours:6.5,productivity_rate:677,layout_id:"LY-013",portal_name:"dpr"},
-  {hour:"2024-02-19",account:"DPR Construction",opp_name:"Austin Medical Center",robot:"DR-051",project_name:"Lab Floor 4",feet_line:5300,point:392,text:53,print_quantity:4,robot_hours:7.7,productivity_rate:688,layout_id:"LY-014",portal_name:"dpr"},
+  {hour:"2024-02-15",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Lab Floor 3",feet_line:4400,point:325,text:44,print_quantity:3,robot_hours:6.5,productivity_rate:677,layout_id:"LY-013",portal_name:"dpr"},
+  {hour:"2024-02-19",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Lab Floor 4",feet_line:5300,point:392,text:53,print_quantity:4,robot_hours:7.7,productivity_rate:688,layout_id:"LY-014",portal_name:"dpr"},
   {hour:"2024-02-22",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-038",project_name:"Lobby - Main",feet_line:6400,point:475,text:65,print_quantity:5,robot_hours:9.2,productivity_rate:696,layout_id:"LY-015",portal_name:"skanska"},
   {hour:"2024-02-26",account:"Skanska USA",opp_name:"Denver Convention Ctr",robot:"DR-039",project_name:"Lobby - Entry",feet_line:3500,point:258,text:35,print_quantity:2,robot_hours:5.1,productivity_rate:686,layout_id:"LY-016",portal_name:"skanska"},
   {hour:"2024-03-01",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-042",project_name:"Level 15",feet_line:5500,point:408,text:55,print_quantity:4,robot_hours:8.0,productivity_rate:688,layout_id:"LY-017",portal_name:"webcor"},
   {hour:"2024-03-05",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-044",project_name:"Level 15",feet_line:5100,point:378,text:51,print_quantity:4,robot_hours:7.5,productivity_rate:680,layout_id:"LY-018",portal_name:"webcor"},
   {hour:"2024-03-08",account:"Webcor Builders",opp_name:"Salesforce Tower P3",robot:"DR-042",project_name:"Level 16",feet_line:4300,point:318,text:43,print_quantity:3,robot_hours:6.3,productivity_rate:683,layout_id:"LY-019",portal_name:"webcor"},
-  {hour:"2024-03-12",account:"DPR Construction",opp_name:"Austin Medical Center",robot:"DR-051",project_name:"Pharmacy Floor",feet_line:6100,point:452,text:61,print_quantity:5,robot_hours:8.9,productivity_rate:685,layout_id:"LY-020",portal_name:"dpr"},
+  {hour:"2024-03-12",account:"DPR Construction",opp_name:"Austin Medical Ctr",robot:"DR-051",project_name:"Pharmacy Floor",feet_line:6100,point:452,text:61,print_quantity:5,robot_hours:8.9,productivity_rate:685,layout_id:"LY-020",portal_name:"dpr"},
 ];
 
-let allData=[...SAMPLE], filtered=[...SAMPLE], currentAccount="All", currentLens="roi", manualWorkers=2;
-let chart1=null, chart2=null;
+let allData=[...SAMPLE],filtered=[...SAMPLE],currentAccount="All",currentMode=null,manualWorkers=2,chart1=null,chart2=null,advancedOpen=false;
 
-const LENSES=[
-  {id:"roi",icon:"⚡",label:"ROI Story",color:"#1B4DFF"},
-  {id:"peak",icon:"📈",label:"Peak Adoption",color:"#00C2FF"},
-  {id:"scale",icon:"🏗",label:"Scale & Throughput",color:"#7C3AED"},
-  {id:"project",icon:"📋",label:"Project Breakdown",color:"#059669"},
+const MODES=[
+  {id:"price",icon:"💰",label:"Price objection",color:"#dc2626",bg:"#fef2f2",border:"#fecaca"},
+  {id:"pipeline",icon:"📉",label:"Pipeline slowing",color:"#d97706",bg:"#fffbeb",border:"#fde68a"},
+  {id:"growth",icon:"📈",label:"Growth story",color:"#059669",bg:"#f0fdf4",border:"#bbf7d0"},
+  {id:"value",icon:"⭐",label:"Proving ongoing value",color:"#7c3aed",bg:"#faf5ff",border:"#e9d5ff"},
+  {id:"ramp",icon:"🚀",label:"Still ramping up",color:"#0ea5e9",bg:"#f0f9ff",border:"#bae6fd"},
 ];
 
-// ─── PARSE CSV ───────────────────────────────────────────────────────────────
 function parseCSV(text){
-  const lines=text.trim().split("\n");
-  if(lines.length<2)return[];
+  const lines=text.trim().split("\n");if(lines.length<2)return[];
   const headers=lines[0].split(",").map(h=>h.trim().replace(/^"|"$/g,""));
   return lines.slice(1).map(line=>{
     const vals=[];let cur="",inQ=false;
     for(const ch of line){if(ch==='"')inQ=!inQ;else if(ch===','&&!inQ){vals.push(cur);cur="";}else cur+=ch;}
     vals.push(cur);
-    const row={};
-    headers.forEach((h,i)=>{const v=(vals[i]??"").trim().replace(/^"|"$/g,"");row[h]=isNaN(v)||v===""?v:parseFloat(v);});
+    const row={};headers.forEach((h,i)=>{const v=(vals[i]??"").trim().replace(/^"|"$/g,"");row[h]=isNaN(v)||v===""?v:parseFloat(v);});
     return row;
   }).filter(r=>Object.values(r).some(v=>v!==""));
 }
@@ -377,13 +355,12 @@ function loadFile(inp){
   const file=inp.files[0];if(!file)return;
   const r=new FileReader();
   r.onload=e=>{
-    const parsed=parseCSV(e.target.result);
-    if(!parsed.length)return;
-    allData=parsed;currentAccount="All";
+    const parsed=parseCSV(e.target.result);if(!parsed.length)return;
+    allData=parsed;currentAccount="All";currentMode=null;
     document.getElementById('dropzone').style.display='none';
-    buildAccountSel();applyFilter();render();
-  };
-  r.readAsText(file);
+    document.getElementById('dataSourceLabel').textContent='CS Renewal Tool · Your data';
+    buildAccountSel();applyFilter();autoDetectMode();render();
+  };r.readAsText(file);
 }
 
 function buildAccountSel(){
@@ -393,14 +370,33 @@ function buildAccountSel(){
   sel.value=currentAccount;
 }
 
-function onAccountChange(){currentAccount=document.getElementById('acctSel').value;applyFilter();render();}
+function onAccountChange(){currentAccount=document.getElementById('acctSel').value;currentMode=null;applyFilter();autoDetectMode();render();}
+function applyFilter(){filtered=currentAccount==="All"?allData:allData.filter(r=>String(r.account)===currentAccount);}
 
-function applyFilter(){
-  filtered=currentAccount==="All"?allData:allData.filter(r=>String(r.account)===currentAccount);
+// ── AUTO DETECT ──────────────────────────────────────────────────────────────
+function autoDetectMode(){
+  const stats=getStats();
+  const projects=getByProject();
+  const monthly=getByMonth();
+  const isGrowing=checkGrowth(monthly);
+  const projectCount=projects.length;
+  const sessionCount=stats.sessions;
+
+  if(sessionCount<=5||projectCount<=1){currentMode='price';return;}
+  if(isGrowing&&projectCount>=3){currentMode='growth';return;}
+  if(!isGrowing&&projectCount>=2){currentMode='pipeline';return;}
+  if(sessionCount>=15){currentMode='value';return;}
+  currentMode='ramp';
 }
 
-// ─── KPIs ────────────────────────────────────────────────────────────────────
-function getKPIs(){
+function checkGrowth(monthly){
+  if(monthly.length<3)return false;
+  const last3=monthly.slice(-3);
+  return last3[2].feet_line>last3[0].feet_line;
+}
+
+// ── STATS ────────────────────────────────────────────────────────────────────
+function getStats(){
   const totalFt=filtered.reduce((s,r)=>s+(Number(r.feet_line)||0),0);
   const totalHrs=filtered.reduce((s,r)=>s+(Number(r.robot_hours)||0),0);
   const totalPts=filtered.reduce((s,r)=>s+(Number(r.point)||0),0);
@@ -408,60 +404,16 @@ function getKPIs(){
   const avgRate=rates.length?rates.reduce((a,b)=>a+b,0)/rates.length:0;
   const projects=[...new Set(filtered.map(r=>String(r.project_name)))].filter(Boolean).length;
   const robots=[...new Set(filtered.map(r=>String(r.robot)))].filter(Boolean).length;
-  const rate=Number(document.getElementById('manualRate')?.value||250);
-  const manHrs=totalFt/(rate*manualWorkers);
-  return{totalFt,totalHrs,totalPts,avgRate,projects,robots,manHrs,
+  const mRate=Number(document.getElementById('manualRate')?.value||250);
+  const lRate=Number(document.getElementById('laborRate')?.value||85);
+  const manHrs=totalFt/(mRate*manualWorkers);
+  const dollarValue=(manHrs-totalHrs)*lRate*manualWorkers;
+  return{totalFt,totalHrs,totalPts,avgRate,projects,robots,manHrs,dollarValue,
     ftPerHr:totalHrs>0?Math.round(totalFt/totalHrs):0,
     timeMult:totalHrs>0?(manHrs/totalHrs).toFixed(1):"—",
-    sessions:filtered.length};
+    sessions:filtered.length,lRate};
 }
 
-function fmtK(n){return n>=1000?(n/1000).toFixed(1)+"k":String(Math.round(n));}
-function fmt(n){return Number(n).toLocaleString();}
-
-function renderKPIs(){
-  const k=getKPIs();
-  const items=[
-    {label:"Linear feet laid",value:fmtK(k.totalFt),sub:"total output",c:"#1B4DFF"},
-    {label:"Robot hours",value:k.totalHrs.toFixed(0),sub:"on-site operation",c:"#0ea5e9"},
-    {label:"Avg productivity",value:fmt(k.ftPerHr)+" ft/hr",sub:"per robot hour",c:"#7c3aed"},
-    {label:"Projects deployed",value:k.projects,sub:`across ${k.robots} robot${k.robots!==1?"s":""}`,c:"#059669"},
-    {label:"Sessions",value:fmt(k.sessions),sub:"total layout runs",c:"#d97706"},
-  ];
-  document.getElementById('kpiGrid').innerHTML=items.map(i=>
-    `<div class="kpi" style="--c:${i.c}"><div class="kpi-label">${i.label}</div><div class="kpi-value">${i.value}</div><div class="kpi-sub">${i.sub}</div></div>`
-  ).join('');
-}
-
-// ─── LENSES ──────────────────────────────────────────────────────────────────
-function renderLens(){
-  document.getElementById('lensBtns').innerHTML=LENSES.map(l=>
-    `<button class="lens-btn${currentLens===l.id?" active":""}" style="${currentLens===l.id?`background:${l.color};border-color:${l.color}`:""}" onclick="setLens('${l.id}')">${l.icon} ${l.label}</button>`
-  ).join('');
-  document.getElementById('roiBox').style.display=currentLens==='roi'?'block':'none';
-  if(currentLens==='roi')renderROI();
-}
-
-function setLens(id){currentLens=id;document.getElementById('storyBody').style.display='none';document.getElementById('storyBtn').textContent='Generate story ✦';render();}
-
-// ─── ROI ─────────────────────────────────────────────────────────────────────
-function renderROI(){
-  document.getElementById('crewBtns').innerHTML=[1,2,3,4,5].map(n=>
-    `<button class="crew-btn${manualWorkers===n?" active":""}" onclick="setCrew(${n})">${n}</button>`
-  ).join('');
-  updateROI();
-}
-function setCrew(n){manualWorkers=n;renderROI();renderKPIs();}
-function updateROI(){
-  const k=getKPIs();
-  document.getElementById('roiStat').innerHTML=
-    `<div class="roi-stat-label">Manual equivalent would take</div>
-     <div class="roi-stat-value">${k.manHrs.toFixed(0)} hrs</div>
-     <div class="roi-stat-sub">vs ${k.totalHrs.toFixed(0)} robot hrs · <strong>${k.timeMult}× crew output</strong> unlocked</div>`;
-  renderKPIs();
-}
-
-// ─── CHARTS ──────────────────────────────────────────────────────────────────
 function getByMonth(){
   const m={};
   filtered.forEach(r=>{
@@ -471,69 +423,211 @@ function getByMonth(){
   });
   return Object.values(m).sort((a,b)=>a.month.localeCompare(b.month));
 }
+
 function getByProject(){
   const m={};
   filtered.forEach(r=>{
-    const k=String(r.project_name??"");
-    if(!m[k])m[k]={project:k.slice(0,18),feet_line:0,sessions:0};
-    m[k].feet_line+=Number(r.feet_line)||0;m[k].sessions++;
-  });
-  return Object.values(m).sort((a,b)=>b.feet_line-a.feet_line).slice(0,8);
-}
-function getByRobot(){
-  const m={};
-  filtered.forEach(r=>{
-    const k=String(r.robot??"");
-    if(!m[k])m[k]={robot:k,feet_line:0,sessions:0};
-    m[k].feet_line+=Number(r.feet_line)||0;m[k].sessions++;
+    const k=String(r.project_name??"");if(!m[k])m[k]={project:k.slice(0,20),feet_line:0,sessions:0,robot_hours:0};
+    m[k].feet_line+=Number(r.feet_line)||0;m[k].sessions++;m[k].robot_hours+=Number(r.robot_hours)||0;
   });
   return Object.values(m).sort((a,b)=>b.feet_line-a.feet_line);
 }
 
+function fmt(n){return Number(n).toLocaleString();}
+function fmtK(n){return n>=1000?(n/1000).toFixed(1)+"k":String(Math.round(n));}
+
+// ── RENDER BANNER ────────────────────────────────────────────────────────────
+function renderBanner(){
+  const mode=MODES.find(m=>m.id===currentMode);if(!mode)return;
+  const msgs={
+    price:{title:"Lead with ROI — price objection likely",sub:"Single or limited projects detected. The manual comparison is your strongest asset."},
+    pipeline:{title:"Pipeline looks like it's slowing",sub:"Project activity is declining. Get ahead of it with a forward-looking conversation."},
+    growth:{title:"Strong growth story — lead with momentum",sub:"Usage is growing month over month. Celebrate it and use it to anchor the renewal."},
+    value:{title:"Prove ongoing value — long-term customer",sub:"Steady, sustained usage. Frame the cumulative output as irreplaceable capacity."},
+    ramp:{title:"Early days — focus on trajectory",sub:"Still building adoption. Highlight wins so far and the runway ahead."},
+  };
+  const msg=msgs[currentMode];
+  document.getElementById('suggestBanner').innerHTML=
+    `<div style="background:${mode.bg};border:1px solid ${mode.border};border-radius:10px;padding:14px 18px;width:100%">
+      <div style="font-size:11px;font-weight:700;color:${mode.color};text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px">✦ Suggested story mode</div>
+      <div style="font-size:15px;font-weight:700;color:${mode.color}">${mode.icon} ${msg.title}</div>
+      <div style="font-size:12px;color:${mode.color};opacity:.75;margin-top:3px">${msg.sub}</div>
+    </div>`;
+}
+
+// ── RENDER MODES ─────────────────────────────────────────────────────────────
+function renderModes(){
+  document.getElementById('modeBtns').innerHTML=MODES.map(m=>{
+    const isActive=m.id===currentMode;
+    const isSuggested=m.id===currentMode;
+    return`<button class="mode-btn${isActive?' active':''}" 
+      style="${isActive?`background:${m.color};border-color:${m.color};color:#fff`:''}"
+      onclick="setMode('${m.id}')">${m.icon} ${m.label}${isSuggested?'<span class="suggested-tag">suggested</span>':''}</button>`;
+  }).join('');
+}
+
+function setMode(id){currentMode=id;render();}
+
+// ── RENDER HERO ──────────────────────────────────────────────────────────────
+function renderHero(){
+  const s=getStats();
+  const monthly=getByMonth();
+  const projects=getByProject();
+  const isGrowing=checkGrowth(monthly);
+  const mode=currentMode;
+  let html='';
+
+  const talkingPoints={
+    price:[
+      `Your team laid <strong>${fmt(s.totalFt)} linear feet</strong> — a manual crew of ${manualWorkers} would have needed <strong>${Math.round(s.manHrs)} hours</strong> to match that output.`,
+      `At Dusty's productivity rate of <strong>${fmt(s.ftPerHr)} ft/hr</strong>, your layout work ran <strong>${s.timeMult}× faster</strong> than manual — that's not a line item, that's a schedule advantage.`,
+      `Ask them: <em>"What would it have cost to staff that manually across ${s.projects} project${s.projects!==1?'s':''}?"</em> Then let them answer.`,
+    ],
+    pipeline:[
+      `They've deployed across <strong>${s.projects} project${s.projects!==1?'s':''}</strong> — ask what's in the pipeline for the next 2 quarters before they assume there's no need.`,
+      `Their peak output was <strong>${fmtK(Math.max(...monthly.map(m=>m.feet_line)))} ft in a single month</strong> — that capacity exists and can be reactivated quickly.`,
+      `Frame the renewal as <em>keeping the capability on standby</em>, not paying for something they're not using right now.`,
+    ],
+    growth:[
+      `Usage has grown month over month — their team is <strong>actively expanding</strong> how they use Dusty, not just maintaining it.`,
+      `They've run <strong>${s.sessions} sessions across ${s.projects} projects</strong> — this is a team that's integrated Dusty into how they work, not a trial.`,
+      `The renewal question isn't "should we keep it?" — it's <em>"how do we deploy it on even more of our pipeline?"</em>`,
+    ],
+    value:[
+      `Over this contract, they've laid <strong>${fmt(s.totalFt)} linear feet</strong> across <strong>${s.projects} projects</strong> — that's a track record, not an experiment.`,
+      `Cumulative output at <strong>${fmt(s.ftPerHr)} ft/hr</strong> means their layout team's capacity has effectively been <strong>${s.timeMult}× what it was before Dusty</strong>.`,
+      `Ask them: <em>"Which of those ${s.projects} projects would have been hardest to staff manually?"</em> — that's where the real value lives.`,
+    ],
+    ramp:[
+      `Early adoption looks strong — <strong>${s.sessions} sessions, ${fmt(s.totalFt)} ft laid</strong> already with more project types ahead.`,
+      `Their productivity rate of <strong>${fmt(s.ftPerHr)} ft/hr</strong> shows the crew is operating efficiently — the ramp is working.`,
+      `Frame renewal as <em>the point where the investment starts compounding</em> — the hard part (onboarding, learning) is already done.`,
+    ],
+  };
+
+  const heroConfigs={
+    price:{number:fmt(s.totalFt),unit:"linear feet laid",color:"#dc2626",sub:`${Math.round(s.manHrs)} manual hours to match this output with a crew of ${manualWorkers}`},
+    pipeline:{number:s.projects,unit:`project${s.projects!==1?'s':''} deployed`,color:"#d97706",sub:`${s.sessions} total sessions · ${fmt(s.totalFt)} ft laid`},
+    growth:{number:fmtK(s.totalFt),unit:"linear feet — and growing",color:"#059669",sub:`${isGrowing?'↑ Trending up':'Steady'} · ${s.sessions} sessions across ${s.projects} projects`},
+    value:{number:fmt(s.totalFt),unit:"lifetime linear feet",color:"#7c3aed",sub:`${s.projects} projects · ${s.sessions} sessions · ${fmt(s.ftPerHr)} ft/hr avg`},
+    ramp:{number:fmt(s.ftPerHr),unit:"ft/hr productivity rate",color:"#0ea5e9",sub:`${fmt(s.totalFt)} ft laid so far · ${s.sessions} sessions · trajectory is strong`},
+  };
+
+  const h=heroConfigs[mode]||heroConfigs.value;
+  const pts=talkingPoints[mode]||talkingPoints.value;
+
+  html=`<div class="hero-card" style="border-top:4px solid ${h.color}">
+    <div class="hero-label" style="color:${h.color};font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">${MODES.find(m=>m.id===mode)?.icon} ${MODES.find(m=>m.id===mode)?.label}</div>
+    <div class="hero-number" style="color:${h.color}">${h.number}</div>
+    <div style="font-size:18px;font-weight:600;color:#1e293b">${h.unit}</div>
+    <div style="font-size:12px;color:#94a3b8;margin-top:4px">${h.sub}</div>
+    <div class="talking-points">
+      <div class="tp-label">Talking points for this conversation</div>
+      ${pts.map(p=>`<div class="tp-item"><div class="tp-dot"></div><div>${p}</div></div>`).join('')}
+    </div>
+  </div>`;
+
+  document.getElementById('heroSection').innerHTML=html;
+}
+
+// ── RENDER KPIs ──────────────────────────────────────────────────────────────
+function renderKPIs(){
+  const s=getStats();
+  const items=[
+    {label:"Linear feet laid",value:fmtK(s.totalFt),sub:"total output",c:"#1B4DFF"},
+    {label:"Robot hours",value:s.totalHrs.toFixed(0),sub:"on-site operation",c:"#0ea5e9"},
+    {label:"Avg productivity",value:fmt(s.ftPerHr)+" ft/hr",sub:"per robot hour",c:"#7c3aed"},
+    {label:"Projects deployed",value:s.projects,sub:`across ${s.robots} robot${s.robots!==1?"s":""}`,c:"#059669"},
+  ];
+  document.getElementById('kpiStrip').innerHTML=items.map(i=>
+    `<div class="kpi" style="--c:${i.c}"><div class="kpi-label">${i.label}</div><div class="kpi-value">${i.value}</div><div class="kpi-sub">${i.sub}</div></div>`
+  ).join('');
+}
+
+// ── ROI ──────────────────────────────────────────────────────────────────────
+function renderCrewBtns(){
+  document.getElementById('crewBtns').innerHTML=[1,2,3,4,5].map(n=>
+    `<button class="crew-btn${manualWorkers===n?' active':''}" onclick="setCrew(${n})">${n}</button>`
+  ).join('');
+}
+function setCrew(n){manualWorkers=n;renderCrewBtns();updateROI();renderHero();}
+function toggleAdvanced(){advancedOpen=!advancedOpen;document.getElementById('advancedRow').classList.toggle('show',advancedOpen);document.querySelector('.advanced-toggle').textContent=advancedOpen?'− Hide dollar estimate':'+ Show dollar value estimate';updateROI();}
+
+function updateROI(){
+  const s=getStats();
+  document.getElementById('roiResult').innerHTML=
+    `<div class="roi-result-label">Manual equivalent</div>
+     <div class="roi-result-value">${Math.round(s.manHrs).toLocaleString()} hrs</div>
+     <div class="roi-result-sub">vs ${s.totalHrs.toFixed(0)} robot hrs · <strong>${s.timeMult}× output unlocked</strong></div>`;
+  if(advancedOpen){
+    const dollars=Math.max(0,s.dollarValue);
+    document.getElementById('dollarResult').innerHTML=
+      `<div class="dollar-result">Estimated labor value delivered: <strong>$${Math.round(dollars).toLocaleString()}</strong><br><span style="font-size:11px;opacity:.7">Based on ${manualWorkers} workers @ $${s.lRate}/hr · adjust rates to match this customer</span></div>`;
+  }
+  renderHero();
+}
+
+// ── CHARTS ───────────────────────────────────────────────────────────────────
 function renderCharts(){
   const monthly=getByMonth();
-  const byProject=getByProject();
-  const byRobot=getByRobot();
-  const peakMonths=[...monthly].sort((a,b)=>b.feet_line-a.feet_line).slice(0,6);
-
+  const projects=getByProject();
+  const isGrowing=checkGrowth(monthly);
   if(chart1){chart1.destroy();chart1=null;}
   if(chart2){chart2.destroy();chart2=null;}
 
-  const c1=document.getElementById('chart1').getContext('2d');
-  const c2=document.getElementById('chart2').getContext('2d');
-  const gridColor='rgba(0,0,0,0.05)';
-  const tickColor='#94a3b8';
-  const baseOpts={responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false},tooltip:{bodyFont:{size:12},titleFont:{size:12}}},scales:{x:{grid:{display:false},ticks:{color:tickColor,font:{size:10}}},y:{grid:{color:gridColor},ticks:{color:tickColor,font:{size:10}},border:{display:false}}}};
+  const base={responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false},tooltip:{bodyFont:{size:12},titleFont:{size:12}}},scales:{x:{grid:{display:false},ticks:{color:'#94a3b8',font:{size:10}}},y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{color:'#94a3b8',font:{size:10}},border:{display:false}}}};
 
-  if(currentLens==='project'){
-    document.getElementById('chart1Title').textContent='Output by project (ft)';
-    chart1=new Chart(c1,{type:'bar',data:{labels:byProject.map(p=>p.project),datasets:[{data:byProject.map(p=>p.feet_line),backgroundColor:'#1B4DFF',borderRadius:4}]},options:{...baseOpts,scales:{...baseOpts.scales,x:{...baseOpts.scales.x,ticks:{...baseOpts.scales.x.ticks,maxRotation:25}}}}});
-  } else if(currentLens==='peak'){
-    document.getElementById('chart1Title').textContent='Peak usage months';
-    chart1=new Chart(c1,{type:'bar',data:{labels:peakMonths.map(p=>p.month),datasets:[{data:peakMonths.map(p=>p.feet_line),backgroundColor:'#00C2FF',borderRadius:4}]},options:baseOpts});
-  } else {
-    document.getElementById('chart1Title').textContent='Linear feet over time';
-    chart1=new Chart(c1,{type:'line',data:{labels:monthly.map(m=>m.month),datasets:[{data:monthly.map(m=>m.feet_line),borderColor:'#1B4DFF',backgroundColor:'rgba(27,77,255,0.08)',tension:0.3,fill:true,pointRadius:3}]},options:baseOpts});
-  }
+  // Chart 1 — always project output
+  document.getElementById('c1Title').textContent='Output by project';
+  document.getElementById('c1Sub').textContent='Linear feet laid per project — shows breadth of deployment';
+  document.getElementById('c1Wrap').innerHTML='<canvas id="chart1" height="200"></canvas>';
+  chart1=new Chart(document.getElementById('chart1').getContext('2d'),{
+    type:'bar',
+    data:{labels:projects.map(p=>p.project),datasets:[{data:projects.map(p=>p.feet_line),backgroundColor:'#1B4DFF',borderRadius:4}]},
+    options:{...base,scales:{...base.scales,x:{...base.scales.x,ticks:{...base.scales.x.ticks,maxRotation:25}}}}
+  });
 
-  if(currentLens==='scale'){
-    document.getElementById('chart2Title').textContent='Output per robot';
-    chart2=new Chart(c2,{type:'bar',data:{labels:byRobot.map(r=>r.robot),datasets:[{data:byRobot.map(r=>r.feet_line),backgroundColor:'#7C3AED',borderRadius:4}]},options:baseOpts});
+  // Chart 2 — growth only if growing, otherwise top projects table
+  if(isGrowing){
+    const growthPct=monthly.length>=2?Math.round(((monthly[monthly.length-1].feet_line-monthly[0].feet_line)/monthly[0].feet_line)*100):0;
+    document.getElementById('c2Title').innerHTML=`Monthly output trend <span class="growth-badge">↑ Growing</span>`;
+    document.getElementById('c2Sub').textContent='Linear feet laid per month — consistent upward trend';
+    document.getElementById('c2Wrap').innerHTML='<canvas id="chart2" height="200"></canvas>';
+    chart2=new Chart(document.getElementById('chart2').getContext('2d'),{
+      type:'line',
+      data:{labels:monthly.map(m=>m.month),datasets:[{data:monthly.map(m=>m.feet_line),borderColor:'#059669',backgroundColor:'rgba(5,150,105,0.08)',tension:0.3,fill:true,pointRadius:3}]},
+      options:base
+    });
   } else {
-    document.getElementById('chart2Title').textContent='Sessions per month';
-    chart2=new Chart(c2,{type:'bar',data:{labels:monthly.map(m=>m.month),datasets:[{data:monthly.map(m=>m.sessions),backgroundColor:'#059669',borderRadius:4}]},options:baseOpts});
+    // Not growing — show top projects detail instead of a bad chart
+    document.getElementById('c2Title').textContent='Top projects by output';
+    document.getElementById('c2Sub').textContent='Highest performing projects this period';
+    const top=projects.slice(0,5);
+    document.getElementById('c2Wrap').innerHTML=`
+      <div style="margin-top:4px">
+        ${top.map((p,i)=>`
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+            <div style="font-size:11px;color:#94a3b8;width:16px;text-align:right">${i+1}</div>
+            <div style="flex:1">
+              <div style="font-size:12px;font-weight:500;color:#1e293b">${p.project}</div>
+              <div style="height:6px;background:#f1f5f9;border-radius:3px;margin-top:4px">
+                <div style="height:6px;background:#1B4DFF;border-radius:3px;width:${Math.round((p.feet_line/top[0].feet_line)*100)}%"></div>
+              </div>
+            </div>
+            <div style="font-size:12px;font-weight:600;color:#1B4DFF;white-space:nowrap">${fmtK(p.feet_line)} ft</div>
+          </div>`).join('')}
+      </div>`;
   }
 }
 
-// ─── TABLE ───────────────────────────────────────────────────────────────────
+// ── TABLE ────────────────────────────────────────────────────────────────────
 function renderTable(){
   const cols=['hour','account','project_name','robot','feet_line','point','robot_hours','productivity_rate'];
   const labels=['Date','Account','Project','Robot','Ft laid','Points','Hours','Productivity'];
-  const shown=filtered.slice(0,40);
-  document.getElementById('tableCount').textContent=`${filtered.length} sessions · ${currentAccount==="All"?"all accounts":currentAccount}`;
+  document.getElementById('tableCount').textContent=`${filtered.length} sessions`;
   document.getElementById('dataTable').innerHTML=
     `<thead><tr>${labels.map(l=>`<th>${l}</th>`).join('')}</tr></thead><tbody>`+
-    shown.map((r,i)=>`<tr>${cols.map(c=>{
+    filtered.slice(0,40).map((r,i)=>`<tr>${cols.map(c=>{
       if(c==='productivity_rate')return`<td><span class="badge">${fmt(r[c])} ft/hr</span></td>`;
       if(c==='feet_line')return`<td style="color:#1B4DFF;font-weight:600">${fmt(r[c])}</td>`;
       if(c==='hour')return`<td>${String(r[c]).slice(0,10)}</td>`;
@@ -543,38 +637,7 @@ function renderTable(){
   document.getElementById('tableMore').textContent=filtered.length>40?`Showing 40 of ${filtered.length} · export CSV for full data`:'';
 }
 
-// ─── STORY ───────────────────────────────────────────────────────────────────
-async function generateStory(){
-  const btn=document.getElementById('storyBtn');
-  btn.textContent='Writing...';btn.disabled=true;
-  const k=getKPIs();
-  const acctLabel=currentAccount==="All"?"all accounts":currentAccount;
-  const lensObj=LENSES.find(l=>l.id===currentLens);
-  const summary={account:acctLabel,totalFt:fmt(k.totalFt),totalHrs:k.totalHrs.toFixed(1),avgProductivity:Math.round(k.avgRate)+" ft/hr",sessions:k.sessions,projects:k.projects,robots:k.robots,manualEquivalentHrs:k.manHrs.toFixed(1),manualWorkers,timeMult:k.timeMult};
-  const prompts={
-    roi:`You are a Customer Success manager at Dusty Robotics presenting at a renewal meeting. Write a compelling 3-paragraph talking-points narrative for the ROI lens. Focus on labor reallocation (same crew, more output), rework/error cost reduction, and schedule compression — NOT generic "time savings." Be specific and persuasive. Data: ${JSON.stringify(summary)}. End with one strong renewal hook.`,
-    peak:`You are a CS manager at Dusty Robotics. Write 3 paragraphs highlighting peak adoption moments for a renewal conversation. Celebrate high-activity periods and connect consistent usage to operational maturity. Data: ${JSON.stringify(summary)}. End with a forward-looking statement about momentum.`,
-    scale:`You are a CS manager at Dusty Robotics. Write 3 paragraphs about scale and throughput — more work with the same team. Avoid "time savings." Focus on capacity expansion and competitive advantage. Data: ${JSON.stringify(summary)}. End with a renewal hook about next year.`,
-    project:`You are a CS manager at Dusty Robotics. Write 3 paragraphs on project-by-project performance for a renewal meeting. Highlight consistency, strong performance on complex jobs, breadth of deployment. Data: ${JSON.stringify(summary)}. End with expanding to more project types.`,
-  };
-  try{
-    const res=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1000,messages:[{role:"user",content:prompts[currentLens]??prompts.roi}]})});
-    const d=await res.json();
-    const text=d.content?.filter(b=>b.type==="text").map(b=>b.text).join("")??"Could not generate.";
-    document.getElementById('storyBody').style.display='block';
-    document.getElementById('storyBody').innerHTML=
-      text.split("\n\n").filter(Boolean).map(p=>`<p>${p}</p>`).join('')+
-      `<div class="story-actions">
-        <button class="btn-copy" onclick="navigator.clipboard.writeText(document.getElementById('storyBody').innerText.replace('Copy to clipboard','').replace('Clear','').trim())">Copy to clipboard</button>
-        <button class="btn-clear" onclick="document.getElementById('storyBody').style.display='none';document.getElementById('storyBtn').textContent='Generate story ✦'">Clear</button>
-       </div>`;
-    document.getElementById('storyTitle').textContent=`${lensObj?.icon} ${lensObj?.label} — ${acctLabel}`;
-    document.getElementById('storyMeta').textContent=`AI narrative · ${k.sessions} sessions · ${fmt(k.totalFt)} ft laid`;
-  }catch(e){document.getElementById('storyBody').style.display='block';document.getElementById('storyBody').innerHTML='<p>Could not generate story. Try again.</p>';}
-  btn.textContent='Regenerate ↺';btn.disabled=false;
-}
-
-// ─── EXPORT ──────────────────────────────────────────────────────────────────
+// ── EXPORT ───────────────────────────────────────────────────────────────────
 function exportCSV(){
   if(!filtered.length)return;
   const h=Object.keys(filtered[0]).join(',');
@@ -582,7 +645,7 @@ function exportCSV(){
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h+'\n'+rows],{type:'text/csv'}));a.download='dusty-export.csv';a.click();
 }
 
-// ─── TABS ────────────────────────────────────────────────────────────────────
+// ── TABS ─────────────────────────────────────────────────────────────────────
 function switchTab(id,el){
   document.getElementById('tab-dashboard').style.display=id==='dashboard'?'block':'none';
   document.getElementById('tab-funnelstory').style.display=id==='funnelstory'?'block':'none';
@@ -590,21 +653,20 @@ function switchTab(id,el){
   el.classList.add('active');
 }
 
-// ─── COPY PROMPT ────────────────────────────────────────────────────────────
 function copyPrompt(btn){
   const text=btn.closest('.prompt-card').querySelector('.prompt-text').textContent;
   navigator.clipboard.writeText(text).then(()=>{btn.textContent='Copied ✓';btn.style.color='#059669';setTimeout(()=>{btn.textContent='Copy';btn.style.color='';},2000);});
 }
 
-// ─── DRAG DROP ───────────────────────────────────────────────────────────────
+// ── DRAG DROP ────────────────────────────────────────────────────────────────
 const dz=document.getElementById('dropzone');
 dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag');});
 dz.addEventListener('dragleave',()=>dz.classList.remove('drag'));
 dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag');const f=e.dataTransfer.files[0];if(f){const inp=document.getElementById('fileIn');const dt=new DataTransfer();dt.items.add(f);inp.files=dt.files;loadFile(inp);}});
 
-// ─── RENDER ──────────────────────────────────────────────────────────────────
-function render(){renderKPIs();renderLens();renderCharts();renderTable();}
-buildAccountSel();render();
+// ── INIT ─────────────────────────────────────────────────────────────────────
+function render(){renderBanner();renderModes();renderHero();renderKPIs();renderCrewBtns();updateROI();renderCharts();renderTable();}
+buildAccountSel();autoDetectMode();render();
 </script>
 </body>
 </html>
