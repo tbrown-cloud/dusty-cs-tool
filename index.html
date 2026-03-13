@@ -130,6 +130,19 @@ select.hsel{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-rad
   </div>
   <div class="header-right">
     <select class="hsel" id="acctSel" onchange="onAccountChange()"><option value="All">All accounts</option></select>
+    <select class="hsel" id="quickRange" onchange="onQuickRange()">
+      <option value="all">All time</option>
+      <option value="365">Last 12 months</option>
+      <option value="180">Last 6 months</option>
+      <option value="90">Last 3 months</option>
+      <option value="30">Last 30 days</option>
+      <option value="custom">Custom range...</option>
+    </select>
+    <div id="customRange" style="display:none;align-items:center;gap:6px">
+      <input type="date" id="dateFrom" class="hsel" style="padding:6px 8px;font-size:12px" onchange="applyDateFilter()"/>
+      <span style="color:#64748b;font-size:12px">to</span>
+      <input type="date" id="dateTo" class="hsel" style="padding:6px 8px;font-size:12px" onchange="applyDateFilter()"/>
+    </div>
     <button class="btn-primary" onclick="document.getElementById('fileIn').click()">Upload CSV</button>
     <button class="btn-secondary" onclick="exportCSV()">Export</button>
     <input type="file" id="fileIn" accept=".csv" style="display:none" onchange="loadFile(this)"/>
@@ -174,8 +187,8 @@ select.hsel{background:#1e293b;color:#e2e8f0;border:1px solid #334155;border-rad
       </div>
       <div class="roi-field">
         <label>Manual rate (ft/hr per worker)</label>
-        <input type="number" id="manualRate" value="250" oninput="updateROI()"/>
-        <span style="font-size:11px;color:#93c5fd;margin-top:2px">industry default: 250 ft/hr</span>
+        <input type="number" id="manualRate" value="40" oninput="updateROI()"/>
+        <span style="font-size:11px;color:#93c5fd;margin-top:2px">industry default: ~40 ft/hr per worker</span>
       </div>
       <div class="roi-result" id="roiResult"></div>
     </div>
@@ -371,7 +384,43 @@ function buildAccountSel(){
 }
 
 function onAccountChange(){currentAccount=document.getElementById('acctSel').value;currentMode=null;applyFilter();autoDetectMode();render();}
-function applyFilter(){filtered=currentAccount==="All"?allData:allData.filter(r=>String(r.account)===currentAccount);}
+
+function onQuickRange(){
+  const val=document.getElementById('quickRange').value;
+  const customRow=document.getElementById('customRange');
+  if(val==='custom'){customRow.style.display='flex';return;}
+  customRow.style.display='none';
+  applyFilter();autoDetectMode();render();
+}
+
+function applyDateFilter(){applyFilter();autoDetectMode();render();}
+
+function getDateBounds(){
+  const val=document.getElementById('quickRange')?.value||'all';
+  if(val==='all')return{from:null,to:null};
+  if(val==='custom'){
+    return{from:document.getElementById('dateFrom').value||null,to:document.getElementById('dateTo').value||null};
+  }
+  const days=parseInt(val);
+  const to=new Date();
+  const from=new Date();
+  from.setDate(from.getDate()-days);
+  return{from:from.toISOString().slice(0,10),to:to.toISOString().slice(0,10)};
+}
+
+function applyFilter(){
+  const{from,to}=getDateBounds();
+  let base=currentAccount==="All"?allData:allData.filter(r=>String(r.account)===currentAccount);
+  if(from)base=base.filter(r=>String(r.hour).slice(0,10)>=from);
+  if(to)base=base.filter(r=>String(r.hour).slice(0,10)<=to);
+  filtered=base;
+  // Show record count in dropzone area
+  const lbl=document.getElementById('dataSourceLabel');
+  if(lbl){
+    const rangeLabel=document.getElementById('quickRange')?.selectedOptions[0]?.text||'All time';
+    lbl.textContent=`CS Renewal Tool · ${filtered.length} sessions · ${rangeLabel}`;
+  }
+}
 
 // ── AUTO DETECT ──────────────────────────────────────────────────────────────
 function autoDetectMode(){
@@ -404,10 +453,10 @@ function getStats(){
   const avgRate=rates.length?rates.reduce((a,b)=>a+b,0)/rates.length:0;
   const projects=[...new Set(filtered.map(r=>String(r.project_name)))].filter(Boolean).length;
   const robots=[...new Set(filtered.map(r=>String(r.robot)))].filter(Boolean).length;
-  const mRate=Number(document.getElementById('manualRate')?.value||250);
+  const mRate=Number(document.getElementById('manualRate')?.value||40);
   const lRate=Number(document.getElementById('laborRate')?.value||85);
   const manHrs=totalFt/(mRate*manualWorkers);
-  const dollarValue=(manHrs-totalHrs)*lRate*manualWorkers;
+  const dollarValue=manHrs*lRate*manualWorkers;
   return{totalFt,totalHrs,totalPts,avgRate,projects,robots,manHrs,dollarValue,
     ftPerHr:totalHrs>0?Math.round(totalFt/totalHrs):0,
     timeMult:totalHrs>0?(manHrs/totalHrs).toFixed(1):"—",
